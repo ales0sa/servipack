@@ -1,0 +1,49 @@
+{
+    "table": {
+        "icon": "pi pi-angle-double-right",
+        "singlepage": false,
+        "id": 1,
+        "uuid": 0,
+        "tablename": "sliders_home",
+        "name": {
+            "es": "Slider Home",
+            "en": ""
+        },
+        "timestamps": 1,
+        "softDeletes": 1,
+        "menu_show": 1,
+        "slug": 0,
+        "slug_global": 0,
+        "whoCan": [
+            "developer"
+        ],
+        "menu_parent": "home"
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "image",
+            "icon": "",
+            "type": "file",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "Image",
+                "en": "Image"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 1
+}

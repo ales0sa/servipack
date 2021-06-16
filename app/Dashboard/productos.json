@@ -1,0 +1,96 @@
+{
+    "table": {
+        "icon": "pi pi-shopping-cart",
+        "singlepage": true,
+        "id": 1,
+        "uuid": 0,
+        "tablename": "productos",
+        "name": {
+            "es": "Productos",
+            "en": "Productos"
+        },
+        "timestamps": 1,
+        "softDeletes": 1,
+        "menu_show": 1,
+        "slug": 0,
+        "slug_global": 0,
+        "whoCan": [
+            "developer"
+        ]
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "input_1",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 6,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_1",
+                "en": "input_1"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "input_2",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 6,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_2",
+                "en": "input_2"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "input_3",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 5,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_3",
+                "en": "input_3"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 1
+}
