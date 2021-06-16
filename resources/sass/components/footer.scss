@@ -1,0 +1,113 @@
+
+.networks {
+    display: flex;
+    justify-content: flex-start;
+    @media (max-width: 767.98px) {
+        justify-content: center;
+    }
+    &__network {
+        height: 40px;
+        width: 40px;
+        background-color: transparent;
+        border: 1px solid #FFF;
+        border-radius: 100%;
+        color: #FFF;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 1em;
+        transition: .3s;
+        margin-right: 15px;
+        &:hover {
+            background-color: #FFF;
+            color: #000;
+            text-decoration: none;
+            transform: scale(1.2);
+        }
+    }
+}
+.footer {
+    
+    a {
+        display: flex;
+        color: white;
+        line-height: 27px;
+        font-size: 13px;
+    }
+    
+    &__networks {
+        background-color: var(--orange);
+        color: #fff;
+        padding: 30px 0;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__network {
+        font-size: 16px;
+        border: 1px solid #fff;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        text-decoration: none;
+        margin-left: 7.5px;
+        &:hover {
+            background-color: #fff;
+            color: var(--orange);
+        }
+        &:nth-child(1) {
+            margin-left: 15px;
+        }          
+    }
+    &__copyright {
+        background-color: var(--blue);
+        font-family: var(--raleway);
+        font-size: 12px;
+        padding: 6px 0;
+        white-space: nowrap;
+        color: #fff;
+    }
+    &__title {
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+        color: white;
+        font-size: 16px;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    &__nav-item {
+        margin-bottom: 5px;
+        color: var(--darkgray);
+        font-size: 500;
+        font-size: 14px;
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    
+    &__contact-item {
+        color: var(--darkgray);
+        display: block;
+        margin-bottom: 5px;
+        padding-left: 25px;
+        font-weight: 500;
+        font-size: 13px;
+        text-decoration: none;
+        position: relative;
+        i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

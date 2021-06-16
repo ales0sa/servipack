@@ -1,0 +1,144 @@
+{
+    "table": {
+        "icon": "pi pi-angle-double-right",
+        "singlepage": false,
+        "id": 1,
+        "uuid": 0,
+        "tablename": "home_iconos",
+        "name": {
+            "es": "",
+            "en": ""
+        },
+        "timestamps": 1,
+        "softDeletes": 1,
+        "menu_show": false,
+        "slug": 0,
+        "slug_global": 0,
+        "whoCan": [
+            "developer"
+        ]
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "titulo",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Titulo",
+                "en": "Titulo"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "subtitulo",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Subtitulo",
+                "en": "Subtitulo"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "foto",
+            "icon": "",
+            "type": "file",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Foto",
+                "en": "Foto"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "id_home",
+            "icon": "",
+            "type": "bigInteger",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_4",
+                "en": "input_4"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "color",
+            "icon": "",
+            "type": "color",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_5",
+                "en": "input_5"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 1
+}

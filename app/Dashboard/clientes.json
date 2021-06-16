@@ -1,7 +1,7 @@
 {
     "table": {
         "icon": "pi pi-user",
-        "singlepage": true,
+        "singlepage": false,
         "id": 1,
         "uuid": 0,
         "tablename": "clientes",
@@ -21,14 +21,14 @@
     "inputs": [
         {
             "isCollapsed": true,
-            "columnname": "input_1",
+            "columnname": "image",
             "icon": "",
-            "type": "text",
+            "type": "file",
             "visible": 1,
             "gridcols": 6,
             "visible_edit": 1,
             "label": {
-                "es": "input_1",
+                "es": "Foto",
                 "en": "input_1"
             },
             "unique": 0,
@@ -45,15 +45,15 @@
         },
         {
             "isCollapsed": true,
-            "columnname": "input_2",
+            "columnname": "link",
             "icon": "",
             "type": "text",
             "visible": 1,
             "gridcols": 6,
             "visible_edit": 1,
             "label": {
-                "es": "input_2",
-                "en": "input_2"
+                "es": "Link",
+                "en": "Link"
             },
             "unique": 0,
             "default": "",
@@ -69,15 +69,39 @@
         },
         {
             "isCollapsed": true,
-            "columnname": "input_3",
+            "columnname": "name",
             "icon": "",
             "type": "text",
             "visible": 1,
             "gridcols": 5,
             "visible_edit": 1,
             "label": {
-                "es": "input_3",
-                "en": "input_3"
+                "es": "Nombre",
+                "en": "Name"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "input_4",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_4",
+                "en": "input_4"
             },
             "unique": 0,
             "default": "",

@@ -1,0 +1,73 @@
+{
+    "table": {
+        "icon": "pi pi-sitemap",
+        "singlepage": false,
+        "id": 1,
+        "uuid": 0,
+        "tablename": "categorias",
+        "name": {
+            "es": "Categorias",
+            "en": "Categorias"
+        },
+        "timestamps": 1,
+        "softDeletes": 1,
+        "menu_show": 1,
+        "slug": 0,
+        "slug_global": 0,
+        "whoCan": [
+            "developer"
+        ],
+        "menu_parent": "productos"
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "title",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "Titulo",
+                "en": "Titulo"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "image",
+            "icon": "",
+            "type": "file",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "Foto",
+                "en": "input_2"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 1
+}

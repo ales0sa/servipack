@@ -1,0 +1,112 @@
+.grupo {
+    &__sidebar {
+        &-item {
+            display: block;
+            color: var(--gray);
+            font-size: 15px;
+            font-weight: 400;
+            border-top: 6px solid var(--gray-alpha);
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 18px 15px;
+            &--active, &:hover, &:focus {
+                border-top: 6px solid var(--darkpink);
+                color: var(--darkpink);
+            }
+        }
+    }
+}
+.product-box {
+    display: block;
+    margin-bottom: var(--bs-gutter-x);
+    text-decoration: none;
+    cursor: pointer;
+    &__image {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 1px solid var(--gray-alpha);
+        &::after {
+            content: '+';
+            color: var(--darkpink);
+            background-color: var(--gray-alpha);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: calc(45% - 45px);
+            padding-bottom: calc(45% - 45px);
+            width: 100%;
+            font-size: 60px;
+            text-decoration: none;
+            opacity: 0;
+        }
+    }
+    &__text {
+        color: var(--darkpink);
+        text-transform: uppercase;
+        font-size: 17px;
+        font-weight: 300;
+        margin-top: 15px;
+        text-decoration: none;
+    }
+    &:hover {
+        .product-box__image {
+            &::after {
+                content: '+';
+                opacity: 1;
+            }
+        }    
+    }
+}
+
+.producto {
+    &__codigo {
+        font-size: 13px;
+        color: var(--gray);
+    }
+    &__name {
+        font-size: 28px;
+        color: var(--darkpink);
+    }
+    &__observaciones {
+        font-size: 15px;
+        color: var(--gray);
+        font-weight: 300;
+        margin-top: 15px;
+    }
+}
+#carouselProducto {
+    margin-bottom: 25%;
+    .carousel-item {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+        border: 1px solid var(--gray-alpha);
+        &__overlay {
+            padding-bottom: 93%;
+        }
+    }
+    .carousel-indicators {
+        margin: 0;
+        bottom: -25%;
+        button {
+            width: 25%;
+            opacity: 1;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 1px solid var(--gray-alpha);
+            height: auto;
+            &::after {
+                content: '';
+                padding-bottom: 75%;
+                width: 100%;
+                display: block;
+            }
+            &.active {
+                border: 1px solid var(--gray);
+            }
+        }
+    }
+}
