@@ -13,10 +13,10 @@
                 <div class="carousel-item__container">
                     <div class="container">
                         <div class="carousel-item__text1">
-                            {{ $item->text1 }}
+                        
                         </div>
                         <div class="carousel-item__text2">
-                            {{ $item->text2 }}
+                           
                         </div>
                     </div>
                 </div>

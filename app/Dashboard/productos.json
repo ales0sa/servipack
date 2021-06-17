@@ -114,7 +114,32 @@
             "tabletextcolumn": "",
             "translatable": 0,
             "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "idcategoria",
+            "icon": "",
+            "type": "select",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "Categor\u00eda",
+                "en": "input_5"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "categorias",
+            "tablekeycolumn": "id",
+            "tabletextcolumn": "title",
+            "translatable": 0,
+            "multiple": false,
+            "valueoriginselector": "table"
         }
     ],
-    "migrate": 0
+    "migrate": 1
 }

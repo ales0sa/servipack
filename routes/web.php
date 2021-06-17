@@ -15,7 +15,7 @@ use App\Http\Controllers\{ WebsiteController};
 
 Route::get('/', function () {
     return view('welcome');
-})->name('website');
+})->name('website.home');
 
 Route::get ('/empresa', [WebsiteController::class, 'empresa'])->name('website.empresa');
 Route::get ('/productos', [WebsiteController::class, 'productos'])->name('website.productos');

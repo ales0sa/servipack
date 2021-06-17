@@ -1,0 +1,73 @@
+{
+    "table": {
+        "icon": "pi pi-angle-double-right",
+        "singlepage": false,
+        "id": 1,
+        "uuid": 0,
+        "tablename": "sliders_empresa",
+        "name": {
+            "es": "Slider Empresa",
+            "en": ""
+        },
+        "timestamps": 1,
+        "softDeletes": 1,
+        "menu_show": 1,
+        "slug": 0,
+        "slug_global": 0,
+        "whoCan": [
+            "developer"
+        ],
+        "menu_parent": "empresa"
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "orden",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Orden",
+                "en": "Orden"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "image",
+            "icon": "",
+            "type": "file",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "Image",
+                "en": "Image"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 0
+}

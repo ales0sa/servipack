@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-4"  style=" 
                         background-image:url({{ $home->promo_image }});
-                        background-size:cover;
+                        background-size:contain;
                         background-repeat:no-repeat;
                         height:396px;
                         background-position:center;
@@ -87,4 +87,12 @@
             <slick  images="{{ json_encode($clientes) }}"/>
         </div>
     </div>
+
+    <script>
+        var myCarousel = document.querySelector('#myCarousel')
+        var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 2000,
+        wrap: false
+        })
+    </script>
 @endsection

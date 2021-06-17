@@ -10903,7 +10903,7 @@ textarea.form-control-lg {
   color: var(--gray);
   border-bottom: 4px solid #00AFEF;
 }
-.header__navbar-item--active {
+.header__navbar-item .active {
   font-weight: 600;
   border-bottom: 4px solid #00AFEF;
 }
@@ -11226,6 +11226,23 @@ textarea.form-control-lg {
 .contacto-info p {
   font-weight: 400;
   font-size: 13px;
+}
+
+h6, .h6 {
+  text-align: left;
+  font-size: 25px;
+  color: #00AFEF;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.breadcrumbs {
+  color: #00AFEF;
+  background-color: #F2F2F2;
+  height: 40px;
+  line-height: 40px;
+  font-style: italic;
+  font-size: 15px;
 }
 
 .btn-clients-area {

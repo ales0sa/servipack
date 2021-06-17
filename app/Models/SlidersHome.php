@@ -17,6 +17,7 @@ class SlidersHome extends Model
 
     protected $fillable = [
         'id',
+        'orden',
         'image',
 
     ];

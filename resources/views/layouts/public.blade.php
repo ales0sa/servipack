@@ -7,6 +7,7 @@
         $cf = \DB::table('config_vars')->where('config_key', 'footer_logo')->first();
         $clinks = \DB::table('config_vars')->where('config_key', 'footer_info')->get('config_value');
         $header_networks = \DB::table('config_vars')->where('config_key', 'header_networks')->get('config_value');
+        $active =  \Route::currentRouteName();
     ?>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -47,7 +48,7 @@
       $companyData->header_direccion = 'test';
       $companyData->header_logo  = '/logo.png';
       
-      $active = 'website';
+     // $active = 'website';
 
       
     ?>
@@ -94,11 +95,11 @@
 <div class="header__navbar">
     <div class="container">
         <div class="row" style="margin-top: 9px; ">
-            <a href="{{ route('website') }}" class="col col-md-4 text-center text-md-start">
+            <a href="{{ route('website.home') }}" class="col col-md-4 text-center text-md-start">
                 <img src="{{ $companyData->header_logo }}" alt="" class="img-fluid pb-3" width="290px" >
             </a>
             <div class="col-md-8 header__navbar-collapse">
-                <a href="{{ route('website') }}" class="header__navbar-item {{ __active($active, 'website', 'header__navbar-item--active') }}">HOME</a>
+                <a href="{{ route('website.home') }}" class="header__navbar-item {{ __active($active, 'website.home', 'header__navbar-item--active') }}">HOME</a>
                 <a href="{{ route('website.empresa') }}" class="header__navbar-item {{ __active($active, 'website.empresa', 'header__navbar-item--active') }}">EMPRESA</a>
                 <a href="{{ route('website.productos') }}" class="header__navbar-item {{ __active($active, 'website.productos', 'header__navbar-item--active') }}">Productos</a>
                 <a href="{{ route('website.cart') }}" class="header__navbar-item {{ __active($active, 'website.cart', 'header__navbar-item--active') }}">CLIENTES</a>
@@ -131,7 +132,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="list-group">
-            <a href="{{ route('website') }}" class="list-group-item list-group-item-action  {{ __active($active, 'website.home', 'active') }}" style="border-radius: 0;">HOME</a>
+            <a href="{{ route('website.home') }}" class="list-group-item list-group-item-action  {{ __active($active, 'website.home', 'active') }}" style="border-radius: 0;">HOME</a>
             <a href="{{ route('website.empresa') }}" class="list-group-item list-group-item-action  {{ __active($active, 'website.empresa', 'active') }}">EMPRESA</a>
             <a href="{{ route('website.productos') }}" class="list-group-item list-group-item-action  {{ __active($active, 'website.productos', 'active') }}">PRODUCTOS</a>
             <a href="{{ route('website.cart') }}" class="list-group-item list-group-item-action  {{ __active($active, 'website.cart', 'active') }}">COTIZAR</a>

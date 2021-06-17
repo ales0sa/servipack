@@ -22,11 +22,35 @@
     "inputs": [
         {
             "isCollapsed": true,
+            "columnname": "order",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Orden",
+                "en": "Order"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
             "columnname": "title",
             "icon": "",
             "type": "text",
             "visible": 1,
-            "gridcols": 12,
+            "gridcols": 9,
             "visible_edit": 1,
             "label": {
                 "es": "Titulo",
