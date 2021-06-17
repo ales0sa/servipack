@@ -26,7 +26,7 @@
             </button>
             </h2>
             <div id="collapse{{ $cat->id }}" 
-                class="accordion-collapse @if($cat->id == $categoria->id) collapsed show @else   @endif " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                class="accordion-collapse @if($cat->id == $categoria->id) collapsed  @else   collapse show @endif " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 @foreach($cat->productos as $cp)
                     <a class="accordion-body  @if($cp->id == $selprod) a_b_a @else   @endif" href="{{ route('website.producto', [ $cp->id ])}}" >
                         <div >
