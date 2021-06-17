@@ -24,12 +24,15 @@
     <meta property="og:title" content="@yield('title', __meta('default', 'title'))" />
     <meta property="og:description" content="@yield('description', __meta('default', 'description'))" />
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/website.css') }}?{{ $assets_version }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a82e74739c.js" crossorigin="anonymous"></script>
 </head>
@@ -231,6 +234,12 @@
         </div>
     </div>
 
+    <script>
+        var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+var collapseList = collapseElementList.map(function (collapseEl) {
+  return new bootstrap.Collapse(collapseEl)
+})
+        </script>
 
     <script type="text/javascript" src="{{ asset('js/app.js').'?'.$assets_version }}"></script>
     @yield('scripts')

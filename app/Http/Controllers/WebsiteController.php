@@ -36,8 +36,8 @@ class WebsiteController extends Controller
     }
 
     public function grupo($id) {
-        
-        $categorias = Categorias::find($id);
+        $categoria = Categorias::find($id);
+        $categorias = Categorias::all();
         $appends    = [];
         if (request()->has('s')) {
             $appends['s'] = request()->s;
@@ -58,10 +58,24 @@ class WebsiteController extends Controller
         $productos->appends($appends);
         //View::share('active', 'website.productos');
         return view('productos', [
-            'search'     => '',
+            'selprod'     => '0',
+            'categoria' => $categoria,
             'categorias' => $categorias,
             'productos'  => $productos
         ]);
     }
 
+    public function producto($id){
+
+        $categorias = Categorias::all();
+        $producto = Productos::find($id);
+        $categoria = Categorias::find($producto->idcategoria);
+        
+        return view('producto', [
+            'selprod'     => $id,
+            'categoria' => $categoria,
+            'categorias' => $categorias,
+            'producto'  => $producto
+        ]);
+    }
 }

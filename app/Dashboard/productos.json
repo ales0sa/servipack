@@ -128,7 +128,7 @@
                 "en": "input_5"
             },
             "unique": 0,
-            "default": "",
+            "default": "1",
             "nullable": 1,
             "validate": 1,
             "max": "",
@@ -141,5 +141,5 @@
             "valueoriginselector": "table"
         }
     ],
-    "migrate": 1
+    "migrate": 0
 }

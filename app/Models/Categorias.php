@@ -29,4 +29,8 @@ class Categorias extends Model
 
 
     }
+
+    public function productos(){
+        return $this->hasMany(Productos::class, 'idcategoria');
+    }
 }
