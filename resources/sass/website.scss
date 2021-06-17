@@ -19,6 +19,26 @@ $body-color: var(--gray);
 @import "sections/products";
 @import "sections/contacto";
 
+h6 {
+
+text-align: left;
+font-size: 25px;
+color: #00AFEF;
+text-transform: uppercase;
+font-weight: bold;
+
+}
+
+.breadcrumbs {
+    color: #00AFEF;
+    background-color: #F2F2F2;
+    height: 40px;
+    line-height: 40px;
+    te
+    font-style: italic;
+    font-size: 15px;
+}
+
 .btn-clients-area {
     background-color: var(--blue);
     color: #fff;
