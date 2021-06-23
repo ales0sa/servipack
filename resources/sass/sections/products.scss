@@ -1,6 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
+h5 {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: #354B9C;
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
 img{
     width: 100%;
     display: block;
@@ -20,6 +26,7 @@ img{
     display: flex;
 }
 .img-item{
+    max-width: 80px;
     margin: 0.3rem;
 }
 .img-item:nth-child(1),
@@ -94,11 +101,10 @@ img{
 }
 .product-detail p{
     font-size: 0.9rem;
-    padding: 0.3rem;
     opacity: 0.8;
+    margin-bottom: 0 !important;
 }
 .product-detail ul{
-    margin: 1rem 0;
     font-size: 0.9rem;
 }
 .product-detail ul li{
@@ -128,7 +134,13 @@ img{
     margin-bottom: 1rem;
 }
 .purchase-info input{
-    width: 60px;
+    width: 84px;
+    height: 47px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-right: 0;
+    margin-right: 0;
+
 }
 .purchase-info .btn{
     cursor: pointer;

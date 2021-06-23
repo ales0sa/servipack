@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Ales0sa\Laradash\Models\CrudBase;
 
-
+use Auth;
 
 class Productos extends Model
 {
@@ -29,5 +29,50 @@ class Productos extends Model
         parent::boot();
 
 
+    }
+    public function GetClientPriceAttribute(){
+
+
+        if(!$this->price){
+            return 0;
+        }
+
+        $user = Auth::user();
+
+
+        if($user ){
+        
+            if($this->price_bc && ($user->mayorista || $user->root)){
+
+                return $this->price_bc;
+            }else{
+
+                return $this->price;
+            }
+        
+        }
+
+
+        
+        return 1;
+
+    }
+
+    public function GetCattitleAttribute(){
+        
+        $sc = Subcategories::find($this->idcategoria);
+        $pc = Categorias::find($sc->category_id);
+        return $pc->title;
+    }
+    public function GetScattitleAttribute(){
+        
+        $sc = Subcategories::find($this->idcategoria);
+       
+        return $sc->name;
+    }
+    public function GetPcatIdAttribute(){
+        
+        $sc = Subcategories::find($this->idcategoria);
+        return $sc->category_id;
     }
 }

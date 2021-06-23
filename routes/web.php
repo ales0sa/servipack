@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{ WebsiteController};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +18,23 @@ Route::get('/', function () {
     return view('welcome');
 })->name('website.home');
 
+
+Route::get ('/novedades', [WebsiteController::class, 'novedades'])->name('website.novedades');
+
+
+Route::get ('/clientes', [WebsiteController::class, 'clientes'])->name('website.clientes');
 Route::get ('/empresa', [WebsiteController::class, 'empresa'])->name('website.empresa');
+
 Route::get ('/productos', [WebsiteController::class, 'productos'])->name('website.productos');
+
+Route::get ('{grupo_id}/subcat', [WebsiteController::class, 'subgrupo'])->name('website.productos.subgrupo');
 Route::get ('{grupo_id}/productos', [WebsiteController::class, 'grupo'])->name('website.productos.grupo');
 Route::get ('{producto_id}/producto', [WebsiteController::class, 'producto'])->name('website.producto');
 
-Route::get ('/cart', [WebsiteController::class, 'cart'])->name('website.cart');
+Route::get ('/client-area',    [WebsiteController::class, 'clientarea'])->name('website.client-area');
+Route::get ('/cart',    [WebsiteController::class, 'cart'])->name('website.cart');
 Route::get ('api/cart', [WebsiteController::class, 'cartData'])->name('website.cart.data');
-Route::post('/cart', [WebsiteController::class, 'cartStore']);
+Route::post('/cart',    [WebsiteController::class, 'cartStore']);
 
 Route::get ('/contacto', [WebsiteController::class, 'contacto'])->name('website.contacto');
 Route::post('/contacto', [WebsiteController::class, 'contactoStore']);
@@ -32,10 +42,16 @@ Route::post('/newsletter', [WebsiteController::class, 'newsletter'])->name('webs
 
 Route::get ('/clientes', [WebsiteController::class, 'clientes'])->name('website.clientes');
 Route::get ('/clientes-data', [WebsiteController::class, 'clientesData'])->name('website.clientes.data');
-Route::post('/clientes-register', [WebsiteController::class, 'clientesRegister'])->name('website.clientes.register');
-Route::post('/clientes-login', 'ClientArea\Auth\LoginController@login')->name('website.clientes.login');
-Route::get('/clientes-logout', 'Auth\LoginController@logout')->name('website.clientes.logout');
+//Route::post('/clientes-register', [WebsiteController::class, 'clientesRegister'])->name('website.clientes.register');
 
+Route::post('/vuelogin', [WebsiteController::class, 'vuelogin'])->name('website.clientes.login');
+Route::post('/vuereg', [WebsiteController::class, 'vuereg'])->name('website.clientes.register');
+
+
+Route::get ('/clientes-logout', 'Auth\LoginController@logout')->name('website.clientes.logout');
+
+
+//Route::post('/vuelogin', 'Auth\LoginController@vuelogin');
+
+Route::get ('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

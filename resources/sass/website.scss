@@ -37,6 +37,9 @@ font-weight: bold;
     line-height: 40px;
     font-style: italic;
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -97,18 +100,18 @@ font-weight: bold;
 }
 
 .btn-clients-area {
-    background-color: var(--blue);
-    color: #fff;
-    text-decoration: none;
-    font-family: var(--roboto);
-    font-weight: 500;
+    cursor: pointer;
+    background: black;
+    color: white;
     font-size: 16px;
-    padding: 11px 20px;
-    border-radius: 6px;
+    font-weight: bold;
+    padding-right: 14px;
+    padding-left: 14px;
+    line-height: 16px;
+    
     white-space: nowrap;
     &:hover {
-        background-color: var(--darkblue);
-        color: #fff;
+        color: white;
     }
 }
 #toggle-mobile-menu {
@@ -123,7 +126,7 @@ font-weight: bold;
     .carousel-item {
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         position: relative;
         &__overlay {
             padding-bottom: 32%;
@@ -327,6 +330,69 @@ a {
     }
 }
 
+
+.product2-list {
+    display: grid;
+    text-decoration: none;
+    grid-template-columns: 1fr 1fr;
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+    }
+    grid-gap: 15px;
+    &__item {
+        opacity: 0.8;
+        position: relative;
+        &:hover, &:focus {
+            opacity: 1;
+            
+        }
+        
+        span {
+            font-size: 19px;
+            color: #00AFEF;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #00AFEF;
+            text-decoration: none;
+            
+            @include media-breakpoint-down(md) {
+                font-size: 13px;
+                bottom: 10px;
+            }
+        }
+    }
+    &__overlay {
+/*        padding-bottom: 100%;*/
+        width: 100%;
+    }
+    &__container {
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-origin: content-box;
+        padding: 20px;
+        margin: 15px;
+        border: 0.5px solid #D2D2D2;
+        &:hover {
+            border: 2px solid #00AFEF;
+        }
+    }
+
+    &__title{ 
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #00AFEF;
+        text-decoration: none;
+        
+    }
+}
+
 .empresa {
     strong {
         color: var(--blue);
@@ -396,5 +462,25 @@ a {
     
     img {
 
+    }
+}
+
+span.network {
+    padding: 14px;
+    border: 1px solid white;
+    border-radius: 50px;
+    margin: auto;
+    
+    padding: 14px;
+    &:hover, &:hover > a{
+        
+            background-color: white;           
+            
+            color:black;
+
+            
+        
+            
+        
     }
 }

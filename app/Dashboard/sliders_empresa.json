@@ -15,7 +15,8 @@
         "slug": 0,
         "slug_global": 0,
         "whoCan": [
-            "developer"
+            "developer",
+            "administrador"
         ],
         "menu_parent": "empresa"
     },

@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap);
 @charset "UTF-8";
 :root {
   --bs-font-sans-serif: "Raleway", sans-serif;
@@ -10876,6 +10875,7 @@ textarea.form-control-lg {
   }
 }
 .header__navbar {
+  border-bottom: 2px solid #354B9C;
   background-color: #FFF;
   position: -moz-sticky;
   position: -o-sticky;
@@ -10915,7 +10915,7 @@ textarea.form-control-lg {
 }
 .header__navbar-user {
   cursor: pointer;
-  color: var(--orange);
+  color: #354B9C;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -11093,6 +11093,15 @@ textarea.form-control-lg {
   }
 }
 
+h5, .h5 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #354B9C;
+  font-size: 16px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
 img {
   width: 100%;
   display: block;
@@ -11117,6 +11126,7 @@ img {
 }
 
 .img-item {
+  max-width: 80px;
   margin: 0.3rem;
 }
 
@@ -11205,12 +11215,11 @@ img {
 
 .product-detail p {
   font-size: 0.9rem;
-  padding: 0.3rem;
   opacity: 0.8;
+  margin-bottom: 0 !important;
 }
 
 .product-detail ul {
-  margin: 1rem 0;
   font-size: 0.9rem;
 }
 
@@ -11245,7 +11254,12 @@ img {
 }
 
 .purchase-info input {
-  width: 60px;
+  width: 84px;
+  height: 47px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .purchase-info .btn {
@@ -11431,7 +11445,7 @@ img {
   position: relative;
 }
 .contact__info i {
-  color: var(--darkpink);
+  color: #00AFEF;
   position: absolute;
   left: -30px;
   top: 6px;
@@ -11446,7 +11460,7 @@ img {
 .contacto-info h1, .contacto-info .h1 {
   font-size: 24px;
   font-weight: 900;
-  color: var(--darkpink);
+  color: #00AFEF;
 }
 .contacto-info p {
   font-weight: 400;
@@ -11468,6 +11482,9 @@ h6, .h6 {
   line-height: 40px;
   font-style: italic;
   font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .accordion-button:not(.collapsed)::after {
@@ -11517,19 +11534,18 @@ h6, .h6 {
 }
 
 .btn-clients-area {
-  background-color: var(--blue);
-  color: #fff;
-  text-decoration: none;
-  font-family: var(--roboto);
-  font-weight: 500;
+  cursor: pointer;
+  background: black;
+  color: white;
   font-size: 16px;
-  padding: 11px 20px;
-  border-radius: 6px;
+  font-weight: bold;
+  padding-right: 14px;
+  padding-left: 14px;
+  line-height: 16px;
   white-space: nowrap;
 }
 .btn-clients-area:hover {
-  background-color: var(--darkblue);
-  color: #fff;
+  color: white;
 }
 
 #toggle-mobile-menu {
@@ -11543,7 +11559,7 @@ h6, .h6 {
 #carouselWebsite .carousel-item {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   position: relative;
 }
 #carouselWebsite .carousel-item__overlay {
@@ -11747,6 +11763,66 @@ a {
   text-decoration: none;
 }
 
+.product2-list {
+  display: grid;
+  text-decoration: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+@media (max-width: 767.98px) {
+  .product2-list {
+    grid-template-columns: 1fr;
+  }
+}
+.product2-list__item {
+  opacity: 0.8;
+  position: relative;
+}
+.product2-list__item:hover, .product2-list__item:focus {
+  opacity: 1;
+}
+.product2-list__item span {
+  font-size: 19px;
+  color: #00AFEF;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #00AFEF;
+  text-decoration: none;
+}
+@media (max-width: 767.98px) {
+  .product2-list__item span {
+    font-size: 13px;
+    bottom: 10px;
+  }
+}
+.product2-list__overlay {
+  /*        padding-bottom: 100%;*/
+  width: 100%;
+}
+.product2-list__container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-origin: content-box;
+  padding: 20px;
+  margin: 15px;
+  border: 0.5px solid #D2D2D2;
+}
+.product2-list__container:hover {
+  border: 2px solid #00AFEF;
+}
+.product2-list__title {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #00AFEF;
+  text-decoration: none;
+}
+
 .empresa strong {
   color: var(--blue);
 }
@@ -11809,4 +11885,16 @@ a {
   padding-right: 0;
   width: 45px;
   text-align: center !important;
+}
+
+span.network {
+  padding: 14px;
+  border: 1px solid white;
+  border-radius: 50px;
+  margin: auto;
+  padding: 14px;
+}
+span.network:hover, span.network:hover > a {
+  background-color: white;
+  color: black;
 }

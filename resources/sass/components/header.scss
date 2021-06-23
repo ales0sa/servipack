@@ -26,6 +26,7 @@
     }
 
     &__navbar {
+        border-bottom: 2px solid #354B9C;
         background-color: #FFF;
         position: -webkit-sticky;
         position: -moz-sticky;
@@ -66,7 +67,7 @@
         }
         &-user {
             cursor: pointer;
-            color: var(--orange);
+            color: #354B9C;
             user-select: none;
         }
     }

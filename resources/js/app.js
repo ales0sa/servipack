@@ -21,6 +21,15 @@ window.Vue = require('vue').default;
 
 Vue.component('slick', require('./components/SlickComponent.vue').default);
 
+
+Vue.component('regandlog', require('./components/RegAndLog.vue').default);
+
+
+Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
+Vue.component('cart', require('./components/Cart.vue').default);
+Vue.component('checkout', require('./components/Checkout.vue').default);
+
+Vue.component('form-contacto', require('./components/FormContactoComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
