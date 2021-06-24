@@ -17,7 +17,7 @@
         "whoCan": [
             "administrador"
         ],
-        "menu_parent": "productos"
+        "menu_parent": null
     },
     "inputs": [
         {
@@ -118,5 +118,5 @@
             "multiple": false
         }
     ],
-    "migrate": 1
+    "migrate": 0
 }

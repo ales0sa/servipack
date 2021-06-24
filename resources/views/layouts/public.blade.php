@@ -45,6 +45,8 @@
         <?php
     
 
+
+    // HARDCODEADO 
       $companyData =  new stdClass();
       $companyData->header_direccion = 'test';
       $companyData->header_email = 'info@servipackembalajes.com.ar';

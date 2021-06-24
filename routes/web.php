@@ -47,6 +47,8 @@ Route::get ('/clientes-data', [WebsiteController::class, 'clientesData'])->name(
 Route::post('/vuelogin', [WebsiteController::class, 'vuelogin'])->name('website.clientes.login');
 Route::post('/vuereg', [WebsiteController::class, 'vuereg'])->name('website.clientes.register');
 
+Route::get('/generate-preference', [WebsiteController::class, 'createPreference'])->name('website.clientes.prefmake');
+
 
 Route::get ('/clientes-logout', 'Auth\LoginController@logout')->name('website.clientes.logout');
 

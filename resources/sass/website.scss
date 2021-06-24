@@ -471,8 +471,10 @@ span.network {
     border-radius: 50px;
     margin: auto;
     
-    padding: 14px;
-    &:hover, &:hover > a{
+    line-height: 20px;
+    &:hover, &:hover > a > i{
+
+            font-size: 15px;
         
             background-color: white;           
             

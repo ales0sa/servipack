@@ -57,7 +57,7 @@
         },
         methods: {
             checkIfExists(itemId) {
-                console.log(this.cart.indexOf(itemId))
+              //  console.log(this.cart.indexOf(itemId))
                 this.exists = this.cart.indexOf(itemId)
             },
             add(itemId, qty) {
@@ -69,7 +69,7 @@
                 //this.cart.push({itemId, qty});
 
                 
-                console.log(d)
+                //console.log(d)
                 this.cart = d
                 localStorage.setItem("servipackCart", JSON.stringify(this.cart));
                 //this.cart = JSON.parse(localStorage.getItem("servipackCart"));              
