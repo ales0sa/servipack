@@ -3,6 +3,7 @@
         <div class="row">
 
 
+
 <div class="col-12 col-lg-8">
 
 
@@ -56,7 +57,7 @@
                 $ {{ formatPrice(item.client_price) }}
                  </span>
  
-                  <span class="d-flex justify-content-between" style="min-width: 14%">
+                  <span class="d-flex justify-content-around" style="min-width: 14%">
 
 
                 <button class="btn btn-primary btn-sm mb-1 mt-1" 
@@ -116,7 +117,7 @@
             
 </div>
 
-<div class="col-12 col-lg-4">
+<div class="col-12 col-lg-4"  v-if="!pagando && oc == 0">
 
 
     <h5>ENVÍO</h5>
@@ -195,7 +196,35 @@
   <button class="btn btn-primary" @click="checkout()" type="button"> Pagar </button>
 </div>
 </div>
-                   
+<div class="col-12 col-lg-4"  v-else>
+
+
+    <div v-if="pagando" class="text-center p-4" > 
+        
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        
+        <h2>Generando orden...</h2>
+        
+         </div>
+
+    <div class="text-center" v-if="oc >= 1 && oc.fdp !== 2">
+
+        <div class="btn button-success">
+            <i class="far fa-check-circle"></i>
+
+        
+        </div>
+            
+        <h2>Orden generada!</h2>
+
+        <h1>#{{ ocdetail.id }}</h1>
+
+    </div>
+    
+
+</div>             
                         
                    
         </div>
@@ -208,6 +237,9 @@
         data() {
             return {
                 itemsCount: 0,
+                pagando: false,
+                ocdetail: null,
+                oc: 0,
                 exists: null,
                 cart: [],
                 parsedcart: [],
@@ -262,7 +294,45 @@
         },
         methods: {
             checkout(){
-                alert('Orden generada con exito!');
+
+                this.pagando = true
+
+                let form = new FormData
+
+                form.append('fdp',  this.fdp);
+                form.append('fde',  this.fde);
+                form.append('cart', JSON.stringify(this.parsedcart));
+
+                
+                
+                axios.post('/generate-preference', form).then((response) => {
+                    
+                    setTimeout(function(){
+                       // window.location.href = this.urlBack
+                        console.log(response.data)
+                        if(response.data.status == 'success'){
+
+
+
+                            this.oc = response.data.oc.id
+                            this.pagando = false;
+                            this.ocdetail = response.data.oc
+
+                            if(this.fdp == 2){
+                                localStorage.removeItem('servipackCart')
+                                window.location.href = response.data.mp
+                            }else{
+                                this.finalCart = []
+                                localStorage.removeItem('servipackCart')
+                            }
+
+
+                        }
+                    }.bind(this), 1000)
+                })
+                
+
+
             },
              del(id, qty) {
 

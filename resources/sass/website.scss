@@ -31,8 +31,21 @@ font-weight: bold;
 }
 
 .breadcrumbs {
-    color: #00AFEF;
-    background-color: #F2F2F2;
+    color: #111282;
+    background-color: #dedeed;
+    height: 40px;
+    line-height: 40px;
+    font-style: initial;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*
+.breadcrumbs {
+    color: #111282;
+    background-color: #dedeed;
     height: 40px;
     line-height: 40px;
     font-style: italic;
@@ -41,7 +54,7 @@ font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+*/
 
 .accordion-button:not(.collapsed)::after {
     font-size: 15px;

@@ -1,0 +1,145 @@
+{
+    "table": {
+        "id": true,
+        "uuid": 0,
+        "tablename": "order_items",
+        "name": {
+            "es": "order_items",
+            "en": "order_items"
+        },
+        "timestamps": 1,
+        "softDeletes": true,
+        "menu_show": false,
+        "singlepage": false,
+        "slug": 0,
+        "slug_global": 0,
+        "icon": "pi pi-file",
+        "whoCan": [
+            "root"
+        ]
+    },
+    "inputs": [
+        {
+            "isCollapsed": true,
+            "columnname": "order_id",
+            "icon": "",
+            "type": "bigInteger",
+            "visible": false,
+            "gridcols": 12,
+            "visible_edit": false,
+            "label": {
+                "es": "order_id",
+                "en": "order_id"
+            },
+            "unique": 0,
+            "default": null,
+            "nullable": true,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "orders",
+            "tablekeycolumn": "id",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false,
+            "valueoriginselector": "table"
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "title",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "title",
+                "en": "title"
+            },
+            "unique": 0,
+            "default": null,
+            "nullable": false,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "total",
+            "icon": "",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "total",
+                "en": "total"
+            },
+            "unique": 0,
+            "default": null,
+            "nullable": false,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false,
+            "type": "money"
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "quantity",
+            "icon": "",
+            "type": "number",
+            "visible": 1,
+            "gridcols": 12,
+            "visible_edit": 1,
+            "label": {
+                "es": "quantity",
+                "en": "quantity"
+            },
+            "unique": 0,
+            "default": null,
+            "nullable": true,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "input_5",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "input_5",
+                "en": "input_5"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        }
+    ],
+    "migrate": 1
+}

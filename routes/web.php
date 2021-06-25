@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{ WebsiteController};
 
+use Ales0sa\Laradash\Http\Controllers\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +34,17 @@ Route::get ('{grupo_id}/productos', [WebsiteController::class, 'grupo'])->name('
 Route::get ('{producto_id}/producto', [WebsiteController::class, 'producto'])->name('website.producto');
 
 Route::get ('/client-area',    [WebsiteController::class, 'clientarea'])->name('website.client-area');
-Route::get ('/cart',    [WebsiteController::class, 'cart'])->name('website.cart');
+
+
 Route::get ('api/cart', [WebsiteController::class, 'cartData'])->name('website.cart.data');
+
+
+// carrito 
+Route::get ('/cart',    [WebsiteController::class, 'cart'])->name('website.cart');
+
 Route::post('/cart',    [WebsiteController::class, 'cartStore']);
+
+
 
 Route::get ('/contacto', [WebsiteController::class, 'contacto'])->name('website.contacto');
 Route::post('/contacto', [WebsiteController::class, 'contactoStore']);
@@ -47,7 +57,7 @@ Route::get ('/clientes-data', [WebsiteController::class, 'clientesData'])->name(
 Route::post('/vuelogin', [WebsiteController::class, 'vuelogin'])->name('website.clientes.login');
 Route::post('/vuereg', [WebsiteController::class, 'vuereg'])->name('website.clientes.register');
 
-Route::get('/generate-preference', [WebsiteController::class, 'createPreference'])->name('website.clientes.prefmake');
+Route::post('/generate-preference', [WebsiteController::class, 'createPreference'])->name('website.clientes.prefmake');
 
 
 Route::get ('/clientes-logout', 'Auth\LoginController@logout')->name('website.clientes.logout');
@@ -56,4 +66,6 @@ Route::get ('/clientes-logout', 'Auth\LoginController@logout')->name('website.cl
 //Route::post('/vuelogin', 'Auth\LoginController@vuelogin');
 
 Route::get ('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+//Auth::routes();
+
+Route::get('login' , [LoginController::class, 'showLoginForm'])->name('login');

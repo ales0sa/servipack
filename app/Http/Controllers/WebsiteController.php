@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\{Categorias, Productos, Novedades, Subcategories, User};
+use \App\Models\{Categorias, Productos, Novedades, Subcategories, User, Orders, OrderItems};
 use Auth;
 use \MercadoPago\SDK;
 use Illuminate\Support\Facades\Validator;
@@ -25,9 +25,11 @@ class WebsiteController extends Controller
     }
     public function novedades(){
 
-        $data = \App\Models\Novedades::all();
+        $featuredPosts = \App\Models\Novedades::all();
+        $posts         = \App\Models\Novedades::paginate();
+        $tags          = ['tag1', 'tag2', 'tag3'];
 
-        return view('novedades', ['data' => $data]);
+        return view('novedades', ['featuredPosts' => $featuredPosts, 'posts' => $posts, 'tags' => $tags]);
     }
     public function empresa(){
 
@@ -157,6 +159,103 @@ class WebsiteController extends Controller
 
     public function createPreference(Request $request){
 
+
+        $carrito       = json_decode($request->cart);
+        $total         = 0;
+        $mp            = 0;
+        $orden         = new Orders;
+        //$orden->nombre = Auth::user()->name;
+        $orden->pago   = $request->fde;
+        $orden->envio  = $request->fdp;
+
+        $orden->save();
+
+
+        foreach($carrito as $item){
+            if($item->itemId){
+                
+                $tprod = Productos::find($item->itemId);
+                $oi = new OrderItems;
+                $oi->order_id = $orden->id;
+                $oi->title = $tprod->name;
+                $oi->quantity = $item->qty;
+                $oi->total = $tprod->client_price * $item->qty;
+                $oi->save();
+
+            }
+      
+        }
+
+        if($request->fdp == 2){
+
+            \MercadoPago\SDK::initialize();
+            $mpconfig = \MercadoPago\SDK::config();
+            $mpconfig->set('CLIENT_SECRET', "SsCHoz6C9ak8ldwUFGThfyQWoHKAqfFd");
+            $mpconfig->set('CLIENT_ID', "3567431617030046");
+            $mpconfig->set('ACCESS_TOKEN', 'APP_USR-3567431617030046-102815-1c5c87a31d448a05bc00ea02b06ed910-321314813');
+            $mpconfig->set('sandbox_mode', "false");
+           
+            $preference = new \MercadoPago\Preference();
+
+
+            foreach($carrito as $item){
+                if($item->itemId){
+                    $tprod = Productos::find($item->itemId);
+
+                    $oi = new OrderItems;
+                    $oi->order_id = $orden->id;
+                    $oi->title = $tprod->name;
+                    $oi->quantity = $item->qty;
+                    $oi->total = $tprod->client_price * $item->qty;
+                    $oi->save();
+            
+                    $total += $oi->total;
+            
+                    $pfo[] = [
+                        'id' => $tprod->id,
+                        'category_id' =>  'factory',
+                        'title' => $tprod->name,
+                        'description' => $tprod->short_desc,//$item['instrucciones'],
+                        'quantity' => $item->qty,
+                        'currency_id' => 'ARS',
+                        'unit_price' =>  intval($tprod->client_price * $item->qty)
+                    ];
+                }
+              }
+
+
+              $preference->items = $pfo; 
+              $preference->external_reference = $orden->id;
+              $preference->notification_url = 'https://servipack.osolelaravel.com/hook';
+              $preference->save(); 
+              $orden->total = $total;
+              $orden->save();
+      
+              return ['status' => 'success', 'oc' => $orden, 'mp' => $preference->init_point ]; 
+        }
+
+
+
+        
+
+        return ['status' => 'success', 'oc' => $orden ]; 
+/*
+        foreach($carrito as $item){
+
+            $p = Producto::find($item->itemId);
+
+            $item           = new OrderItem;
+            $item->orden_id = $orden->id;
+            $item->title    = $p->name;
+            $item->save();
+
+        }*/
+
+
+        //dd($carrito);
+
+        /*
+
         \MercadoPago\SDK::initialize();
         $mpconfig = \MercadoPago\SDK::config();
         $mpconfig->set('CLIENT_SECRET', "SsCHoz6C9ak8ldwUFGThfyQWoHKAqfFd");
@@ -201,6 +300,7 @@ class WebsiteController extends Controller
         $item->unit_price = 75.56;
         $preference->items = array($item);
         $preference->save();
+*/
 
     }
 

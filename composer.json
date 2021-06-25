@@ -4,6 +4,12 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../../DonSistema/laradash"
+        }
+      ],
     "require": {
         "php": "^7.3|^8.0",
         "ales0sa/laradash": "dev-package",

@@ -11,7 +11,7 @@
 <div class="row mt-4">
 
     @auth
-    <checkout />
+        <checkout />
     @endauth
 
     @guest

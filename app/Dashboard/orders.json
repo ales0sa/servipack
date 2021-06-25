@@ -1,6 +1,6 @@
 {
     "table": {
-        "id": 1,
+        "id": true,
         "uuid": 0,
         "tablename": "orders",
         "name": {
@@ -19,57 +19,10 @@
             "administrador"
         ],
         "noActions": false,
-        "pdfButton": true
+        "pdfButton": true,
+        "onlyForUser": false
     },
     "inputs": [
-        {
-            "isCollapsed": true,
-            "columnname": "title",
-            "icon": "",
-            "type": "text",
-            "visible": false,
-            "gridcols": 12,
-            "visible_edit": false,
-            "label": {
-                "es": "title",
-                "en": "title"
-            },
-            "unique": 0,
-            "default": null,
-            "nullable": true,
-            "validate": 1,
-            "max": "",
-            "min": "",
-            "tabledata": "",
-            "tablekeycolumn": "",
-            "tabletextcolumn": "",
-            "translatable": 0,
-            "multiple": false
-        },
-        {
-            "isCollapsed": true,
-            "columnname": "nombre",
-            "icon": "",
-            "type": "text",
-            "visible": 1,
-            "gridcols": 12,
-            "visible_edit": 1,
-            "label": {
-                "es": "nombre",
-                "en": "nombre"
-            },
-            "unique": 0,
-            "default": null,
-            "nullable": true,
-            "validate": 1,
-            "max": "",
-            "min": "",
-            "tabledata": "",
-            "tablekeycolumn": "",
-            "tabletextcolumn": "",
-            "translatable": 0,
-            "multiple": false
-        },
         {
             "isCollapsed": true,
             "columnname": "total",
@@ -263,5 +216,5 @@
             "multiple": false
         }
     ],
-    "migrate": 1
+    "migrate": 0
 }

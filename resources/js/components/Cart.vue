@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-widget">
+    <div class="cart-widget" style="cursor: pointer" @click="goToCart()">
         <span
             ref="count"
             v-show="itemsCount"
@@ -56,6 +56,9 @@
             }
         },
         methods: {
+            goToCart(){
+                window.location.href = '/cart'
+            },
             checkIfExists(itemId) {
               //  console.log(this.cart.indexOf(itemId))
                 this.exists = this.cart.indexOf(itemId)
