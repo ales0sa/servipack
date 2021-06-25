@@ -161,8 +161,10 @@ class WebsiteController extends Controller
 
 
         $carrito       = json_decode($request->cart);
+
         $total         = 0;
         $mp            = 0;
+
         $orden         = new Orders;
         //$orden->nombre = Auth::user()->name;
         $orden->pago   = $request->fde;
@@ -188,8 +190,11 @@ class WebsiteController extends Controller
 
         if($request->fdp == 2){
 
+
             \MercadoPago\SDK::initialize();
+
             $mpconfig = \MercadoPago\SDK::config();
+
             $mpconfig->set('CLIENT_SECRET', "SsCHoz6C9ak8ldwUFGThfyQWoHKAqfFd");
             $mpconfig->set('CLIENT_ID', "3567431617030046");
             $mpconfig->set('ACCESS_TOKEN', 'APP_USR-3567431617030046-102815-1c5c87a31d448a05bc00ea02b06ed910-321314813');
@@ -233,74 +238,9 @@ class WebsiteController extends Controller
       
               return ['status' => 'success', 'oc' => $orden, 'mp' => $preference->init_point ]; 
         }
-
-
-
-        
+    
 
         return ['status' => 'success', 'oc' => $orden ]; 
-/*
-        foreach($carrito as $item){
-
-            $p = Producto::find($item->itemId);
-
-            $item           = new OrderItem;
-            $item->orden_id = $orden->id;
-            $item->title    = $p->name;
-            $item->save();
-
-        }*/
-
-
-        //dd($carrito);
-
-        /*
-
-        \MercadoPago\SDK::initialize();
-        $mpconfig = \MercadoPago\SDK::config();
-        $mpconfig->set('CLIENT_SECRET', "SsCHoz6C9ak8ldwUFGThfyQWoHKAqfFd");
-        $mpconfig->set('CLIENT_ID', "3567431617030046");
-        $mpconfig->set('ACCESS_TOKEN', 'APP_USR-3567431617030046-102815-1c5c87a31d448a05bc00ea02b06ed910-321314813');
-        $mpconfig->set('sandbox_mode', "false");
-       
-        $preference = new \MercadoPago\Preference();
-
-        foreach ($request->orden['added'] as $item) {
-    
-          $tprod = Product::find($item['id']);
-    
-          $oi = new OrderItem;
-          $oi->order_id = $order->id;
-          $oi->title = $tprod->title;
-          $oi->quantity = $item['quantity'];
-          $oi->total = $tprod->price * $item['quantity'];
-          $oi->save();
-    
-          $total += $oi->total;
-    
-          $pfo[] = [
-              'id' => $tprod->id,
-              'category_id' =>  'food',
-              'title' => $tprod->title,
-              'description' => $tprod->description,//$item['instrucciones'],
-              'quantity' => $item['quantity'],
-              'currency_id' => 'ARS',
-              'unit_price' =>  intval($tprod->price)
-            ];
-    
-        }
-
-        // Crea un objeto de preferencia
-        $preference = new MercadoPago\Preference();
-
-        // Crea un ítem en la preferencia
-        $item = new MercadoPago\Item();
-        $item->title = 'Mi producto';
-        $item->quantity = 1;
-        $item->unit_price = 75.56;
-        $preference->items = array($item);
-        $preference->save();
-*/
 
     }
 

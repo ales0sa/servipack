@@ -105,19 +105,22 @@
         @endif
 
       @if($producto->client_price)
-      <div class = "purchase-info" style="line-height: 35px;">
+        <div class = "purchase-info" style="line-height: 35px;">
 
-        <div style="">
-        
-        <hr>
-        <add-to-cart @click="$refs.cart.add({{$producto->id}}, $refs.me.qty)" unit="{{ $producto->unit ?? 1 }}"
-          price="{{ $producto->client_price }}"
-          id="{{ $producto->id }}"
-          ref="me"
-         />
+          <div style="">
+          
+          <hr>
+
+          <add-to-cart @click="$refs.cart.add({{$producto->id}}, $refs.me.qty)"
+            unit="{{ $producto->unit ?? 1 }}"
+            price="{{ $producto->client_price }}"
+            id="{{ $producto->id }}"
+            ref="me"
+          />
+          
+          </div>
+
         </div>
-
-      </div>
       @endif
 
 
