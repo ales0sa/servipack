@@ -2,15 +2,19 @@
     &__headband {
         background-color: #354B9C;
         font-family: var(--raleway);
-        font-size: 12px;
+        font-size: 16px;
         height: 40px;
         line-height: 40px;
         white-space: nowrap;
         &-item {
-            color: #fff;
-            margin-right: 15px;
+            & > a { color: #fff; 
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+
             &:hover {
                 color: #fff;
+                background: #00AFEF;
             }
             @include media-breakpoint-down(md) {
                 display: none;
@@ -34,7 +38,7 @@
         position: -ms-sticky;
         position: sticky;        
         top: 0;
-        z-index: 999;
+        z-index: 110;
         &-collapse {
             // overflow: hidden;
             display: flex;

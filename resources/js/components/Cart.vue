@@ -7,12 +7,12 @@
         >
             {{ itemsCount }}
         </span>
-
-        <img
+        <i  ref="icon" class="fas fa-shopping-cart cart-icon"></i>
+        <!-- <img
             ref="icon"
             src="/cart.png"
             alt="Cart Icon" class="cart-icon"
-        />
+        /> -->
 
         <svg>
             <path ref="larc" d="M 41.5 146.683956 A 77 77 0 1 1 118.5 13.3160439" stroke-dasharray="0 483.805269" />
@@ -128,7 +128,7 @@
     align-items: center;
     width: 69px;
     height: 85px;
-    border: 2px solid #3a3a3a;
+
     border-radius: 50%;
 }
 
@@ -150,9 +150,15 @@
     }
 
     .cart-icon {
-        width: 33px;
+
     }
 
+    .cart-widget:hover > i{
+
+        color: #4ea1c6;
+
+        zoom: 1.5;
+    }
     svg {
         width: 80px;
         height: 95px;

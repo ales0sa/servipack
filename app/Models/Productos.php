@@ -36,17 +36,22 @@ class Productos extends Model
         if(!$this->price){
             return 0;
         }
-
-        $user = Auth::user();
-
-
-        if($user ){
         
-            if($this->price_bc && ($user->mayorista || $user->root)){
+
+
+
+        if(Auth::check()){
+
+            $userid = Auth::user()->id;
+            $user    = \Ales0sa\Laradash\Models\User::with('roles')->find($userid);
+            //dd($u);
+            if($user->hasRole(['mayorista'])){
+
 
                 return $this->price_bc;
+                
             }else{
-
+                
                 return $this->price;
             }
         

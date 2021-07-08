@@ -18,8 +18,8 @@
             "developer",
             "administrador"
         ],
-        "noActions": false,
-        "pdfButton": true,
+        "noActions": true,
+        "pdfButton": false,
         "onlyForUser": false
     },
     "inputs": [
@@ -45,7 +45,7 @@
             "tabletextcolumn": "",
             "translatable": 0,
             "multiple": false,
-            "type": "text"
+            "type": "money"
         },
         {
             "isCollapsed": true,
@@ -99,7 +99,7 @@
             "isCollapsed": true,
             "columnname": "envio",
             "icon": "",
-            "type": "text",
+            "type": "select",
             "visible": 1,
             "gridcols": 12,
             "visible_edit": 1,
@@ -117,13 +117,28 @@
             "tablekeycolumn": "",
             "tabletextcolumn": "",
             "translatable": 0,
-            "multiple": false
+            "multiple": false,
+            "valueoriginselector": "values",
+            "options": [
+                {
+                    "key": "0",
+                    "text": "Retiro en el local"
+                },
+                {
+                    "key": "1",
+                    "text": "Env\u00edo CABA \/ GBA"
+                },
+                {
+                    "key": "2",
+                    "text": "Expreso"
+                }
+            ]
         },
         {
             "isCollapsed": true,
             "columnname": "pago",
             "icon": "",
-            "type": "text",
+            "type": "select",
             "visible": 1,
             "gridcols": 12,
             "visible_edit": 1,
@@ -141,7 +156,22 @@
             "tablekeycolumn": "",
             "tabletextcolumn": "",
             "translatable": 0,
-            "multiple": false
+            "multiple": false,
+            "valueoriginselector": "values",
+            "options": [
+                {
+                    "key": "0",
+                    "text": "Efectivo"
+                },
+                {
+                    "key": "1",
+                    "text": "Transf. Bancaria"
+                },
+                {
+                    "key": "2",
+                    "text": "Mercado Pago"
+                }
+            ]
         },
         {
             "isCollapsed": true,
@@ -193,10 +223,83 @@
         },
         {
             "isCollapsed": true,
+            "columnname": "comprobante",
+            "icon": "",
+            "type": "file",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Comprobante",
+                "en": "Comprobante"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "expreso",
+            "icon": "",
+            "type": "text",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Expreso",
+                "en": "Expreso"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "",
+            "tablekeycolumn": "",
+            "tabletextcolumn": "",
+            "translatable": 0,
+            "multiple": false
+        },
+        {
+            "isCollapsed": true,
+            "columnname": "user_id",
+            "icon": "",
+            "type": "select",
+            "visible": 1,
+            "gridcols": 3,
+            "visible_edit": 1,
+            "label": {
+                "es": "Comprador",
+                "en": "input_11"
+            },
+            "unique": 0,
+            "default": "",
+            "nullable": 1,
+            "validate": 1,
+            "max": "",
+            "min": "",
+            "tabledata": "users",
+            "tablekeycolumn": "id",
+            "tabletextcolumn": "name",
+            "translatable": 0,
+            "multiple": false,
+            "valueoriginselector": "table"
+        },
+        {
+            "isCollapsed": true,
             "columnname": "pdf",
             "icon": "pi pi-file-pdf",
             "type": "VueLink",
-            "visible": 1,
+            "visible": false,
             "gridcols": 3,
             "visible_edit": 1,
             "label": {

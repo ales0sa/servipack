@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="mt-3">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="">
@@ -24,7 +24,10 @@
                     <label for="pwd">Password:</label>
                     <input v-model="password" type="password" class="form-control" id="password" placeholder="********" name="password">
                   </div>
-                  <button type="submit" class="btn btn-block btn-success">Ingresar</button>
+                  <div class="form-group mt-3">
+                  <button type="submit" 
+                  class="btn btn-block btn-success">Ingresar</button>
+                  </div>
                 </form>
         
                     </div>
@@ -54,7 +57,7 @@
                     <label for="pwd">Password:</label>
                     <input v-model="rpassword" type="password" class="form-control" id="password" placeholder="********" name="password">
                   </div>
-                  <button type="submit" class="btn btn-primary">Registrarse</button>
+                  <button type="submit" class="btn btn-primary mt-3">Registrarse</button>
                 </form>
                     </div>
                 </div>

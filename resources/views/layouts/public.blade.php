@@ -64,27 +64,32 @@
             <div class="col-md-9 d-flex">
                 
                 <div class="header__headband-item">
-                    <i class="fas fa-envelope"></i>
-                    {{ $companyData->header_email }}
+                    <a href="mailto:{{$companyData->header_email}}">
+                        <i class="fas fa-envelope"></i>
+                        {{ $companyData->header_email }}
+                        
+                    </a>
                 </div>
                 <div class="header__headband-item">
-                    <i class="fas fa-phone-alt"></i>
-                    {{ $companyData->header_telefono }}
+                    <a href="tel:{{$companyData->header_telefono}}">
+                        <i class="fas fa-phone-alt"></i>
+                        {{ $companyData->header_telefono }}
+                    </a>
                 </div>
             </div>
             <div class="col-md-2 d-flex justify-content-end">
               
-              <div class="" style="background: black;"
+              <div class="botonlogin"
                 
               >
                 
               @if ( !auth()->check() )
-                <div class="">
+                
                     <a href="{{ route('website.client-area') }}" class="btn-clients-area"><i class="fas fa-user"></i> Ingresar / Registrarse </a>
-                </div>
+                
                 @else
                 <div class="">
-                    <a class="btn-clients-area" ><i class="fas fa-user me-2"></i> {{ auth()->user()->name }}</a>
+                    <a class="btn-clients-area" href="/myorders"><i class="fas fa-user me-2"></i> {{ auth()->user()->name }}</a>
                     
                 </div>
                 @endif
@@ -161,13 +166,28 @@
                             
                         <?php $redes =  json_decode($header_networks[0]->config_value); ?>
 
-
                         <div class="networks mt-3">
                         @foreach($redes as $red)                              
                             <span class="network">
                                 
                                 <a href="{{ $red->link }}" >
-                                    <i class="{{ $red->icon }}"> </i>
+                                    
+                                    @switch($red->icon)
+                                        @case('fa fa-facebook')
+                                            <img src="/fb.png" />
+                                        @break
+                                        @case('fa fa-instagram')
+                                            <img src="/in.png" />
+                                        @break
+                                        @case('fa fa-youtube')
+                                            <img src="/yt.png" />
+                                        @break
+                                        @case('fa fa-linkedin')
+                                            <img src="/li.png" />
+                                        @break
+                                    @endswitch
+
+                                    <!-- <i class="{{ $red->icon }}"> </i> -->
                                 </a>
 
                             </span>
@@ -214,16 +234,38 @@
                                 <div class="col-8">
                                 @foreach($data->slice(0,2)  as $cl)
 								<a href="{{ $cl->link }}">
-									<div class="footer__contact-icon"  ><i class="{{ $cl->icon}}"></i></div>
+									<div class="footer__contact-icon"  >
+                                    
+                                    @switch($cl->icon)
+                                        @case('fa fa-map')
+                                        <img style="width: 22px;"  src="https://img.icons8.com/ios-filled/50/fa314a/marker.png"/>
+                                        @break
+                                        @case('fa fa-envelope-o')
+                                        <img style="width: 22px;"  src="https://img.icons8.com/material/24/4a90e2/mail.png"/>
+                                        @break
+                                    @endswitch
+    
+                                    </div>
 									<div class="mx-3" > {{ $cl->text }}</div>
 								</a>
 								@endforeach
                                 </div>
                                 <div class="col-4">
                                 @foreach($data->slice(2,4) as $cl)
+
+
+
 								<a href="{{ $cl->link }}">
-									<div class="footer__contact-icon"  ><i class="{{ $cl->icon}}"></i></div>
-									<div class="mx-3" > {{ $cl->text }}</div>
+
+									  @switch($cl->icon)
+                                        @case('fa fa-phone')
+                                        <img  style="width: 22px;"  src="https://img.icons8.com/ios/50/ffffff/apple-phone.png"/>@break
+
+                                        @case('fab fa-whatsapp')
+                                        <img style="width: 22px;"  src="https://img.icons8.com/color/50/000000/whatsapp--v1.png"/>
+                                        @break
+                                    @endswitch
+									<div class="mx-2" > {{ $cl->text }}</div>
 								</a>
 								@endforeach
                                 </div>
@@ -234,7 +276,7 @@
 
 						</div>
 					</div>
-                    <div class="col-lg-1 text-center">
+                    <div class="col-lg-1 text-center d-flex">
                     
                         <img style="max-width: 80px; margin: auto; " src="/storage/{{ $qr->config_value }}" />
                     </div>
@@ -251,10 +293,10 @@
 
     <script>
         var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
-var collapseList = collapseElementList.map(function (collapseEl) {
-  return new bootstrap.Collapse(collapseEl)
-})
-        </script>
+        var collapseList = collapseElementList.map(function (collapseEl) {
+        return new bootstrap.Collapse(collapseEl)
+        })
+    </script>
 
     <script type="text/javascript" src="{{ asset('js/app.js').'?'.$assets_version }}"></script>
     @yield('scripts')

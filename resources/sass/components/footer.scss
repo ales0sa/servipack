@@ -33,6 +33,11 @@
         color: white;
         line-height: 27px;
         font-size: 13px;
+        &:hover {
+
+            color: #00afef;
+           
+        }
     }
     
     &__networks {
@@ -75,7 +80,7 @@
     &__title {
         font-family: 'Raleway', sans-serif;
         text-transform: uppercase;
-        color: white;
+        color: #2e6286;
         font-size: 16px;
         font-weight: bolder;
         margin-bottom: 10px;

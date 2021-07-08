@@ -22,6 +22,9 @@ Route::get('/', function () {
 
 
 Route::get ('/novedades', [WebsiteController::class, 'novedades'])->name('website.novedades');
+Route::get ('/post/{id}', [WebsiteController::class, 'post'])->name('website.blog-post');
+
+
 
 
 Route::get ('/clientes', [WebsiteController::class, 'clientes'])->name('website.clientes');
@@ -37,6 +40,12 @@ Route::get ('/client-area',    [WebsiteController::class, 'clientarea'])->name('
 
 
 Route::get ('api/cart', [WebsiteController::class, 'cartData'])->name('website.cart.data');
+
+// order user
+Route::get ('/myorder/{id}',    [WebsiteController::class, 'myorder'])->name('website.myorder');
+Route::get ('/verorden/{id}',    [WebsiteController::class, 'verorden'])->name('website.verorden');
+Route::get ('/myorders', [WebsiteController::class, 'myorders'])->name('website.myorders');
+
 
 
 // carrito 

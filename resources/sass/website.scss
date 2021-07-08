@@ -1,10 +1,7 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 // Variables
-@import 'variables';
-
-$font-family-sans-serif: 'Montserrat', sans-serif;
 
 $body-color: var(--gray);
 
@@ -13,7 +10,9 @@ $body-color: var(--gray);
 @import '~bootstrap/scss/bootstrap';
 
 
-
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$font-family-sans-serif: 'Encode Sans SC', sans-serif;
 @import "components/header";
 @import "components/footer";
 @import "sections/home";
@@ -111,22 +110,24 @@ font-weight: bold;
  }
 
 }
-
-.btn-clients-area {
+.botonlogin {
+    padding-left: 20px;
+    padding-right: 20px;
     cursor: pointer;
     background: black;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding-right: 14px;
-    padding-left: 14px;
-    line-height: 16px;
-    
-    white-space: nowrap;
-    &:hover {
+    & > a {
         color: white;
     }
+    &:hover {
+        background: white;
+    }
+    &:hover > a {
+        background: white;
+        color: black;
+    }
+   
 }
+
 #toggle-mobile-menu {
     color: var(--gray);
     border: 2px solid var(--gray);
@@ -472,17 +473,19 @@ a {
 }
 
 .slick__items {
-    
-    img {
+    & > .slick__div {
 
+        & > img {
+            height: 150px;
+        }
     }
 }
 
 span.network {
-    padding: 14px;
+    padding: 4px;
     border: 1px solid white;
     border-radius: 50px;
-    margin: auto;
+    margin: 5px;
     
     line-height: 20px;
     &:hover, &:hover > a > i{

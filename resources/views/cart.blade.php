@@ -8,22 +8,24 @@
     </div>
 </div>
 <div class="container mb-5">
-<div class="row mt-4">
+    <div class="row mt-4">
 
-    @auth
-        <checkout />
-    @endauth
+        @auth
+            <checkout />
 
-    @guest
+            @section('scripts')
+                <script type="text/javascript" src="https://www.mercadopago.com/org-img/jsapi/mptools/buttons/render.js"></script>
+            @endsection
 
-        Porfavor, registrate o inicia sesión para continuar para continuar.
+        @endauth
 
+        @guest
 
-        <regandlog />
+            Porfavor, registrate o inicia sesión para continuar para continuar.
+            <regandlog />
+        @endguest
+        
+    </div>
 
-    @endguest
 </div>
-
-</div>
-
 @endsection

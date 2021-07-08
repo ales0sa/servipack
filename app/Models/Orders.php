@@ -27,11 +27,17 @@ class Orders extends Model
 
     ];
     protected $casts = [
+        'envio' => 'string',
+        'pago'=> 'string'
 
     ];
     public static function boot() {
         parent::boot();
 
 
+    }
+
+    public function items(){
+        return $this->hasMany(OrderItems::class, 'order_id');
     }
 }

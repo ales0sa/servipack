@@ -1,21 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap);
 @charset "UTF-8";
-:root {
-  --bs-font-sans-serif: "Raleway", sans-serif;
-  --raleway: font-family: "Montserrat", sans-serif;
-  --roboto: "Roboto", sans-serif;
-  --darkgray: #1D1D1A;
-  --gray: #707070;
-  --gray-alpha: #7070702B;
-  --orange: #FA9B26;
-  --blue: #199EE3;
-  --darkblue: #1371a0;
-  --green: #0DC143;
-  --darkpink: #D4499A;
-  --darkpink-alpha: #D4499A2B;
-}
-
 /*!
  * Bootstrap v5.0.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -44,7 +28,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-font-sans-serif: "Montserrat", sans-serif;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
@@ -10845,20 +10829,37 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  --bs-font-sans-serif: "Encode Sans SC", sans-serif;
+  --raleway: font-family: "Encode Sans SC", sans-serif;
+  --roboto: "Encode Sans SC", sans-serif;
+  --darkgray: #1D1D1A;
+  --gray: #707070;
+  --gray-alpha: #7070702B;
+  --orange: #FA9B26;
+  --blue: #199EE3;
+  --darkblue: #1371a0;
+  --green: #0DC143;
+  --darkpink: #D4499A;
+  --darkpink-alpha: #D4499A2B;
+}
+
 .header__headband {
   background-color: #354B9C;
   font-family: var(--raleway);
-  font-size: 12px;
+  font-size: 16px;
   height: 40px;
   line-height: 40px;
   white-space: nowrap;
 }
-.header__headband-item {
+.header__headband-item > a {
   color: #fff;
   margin-right: 15px;
+  margin-left: 15px;
 }
 .header__headband-item:hover {
   color: #fff;
+  background: #00AFEF;
 }
 @media (max-width: 767.98px) {
   .header__headband-item {
@@ -10882,7 +10883,7 @@ textarea.form-control-lg {
   position: -ms-sticky;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 110;
 }
 .header__navbar-collapse {
   display: flex;
@@ -10958,6 +10959,9 @@ textarea.form-control-lg {
   line-height: 27px;
   font-size: 13px;
 }
+.footer a:hover {
+  color: #00afef;
+}
 .footer__networks {
   background-color: var(--orange);
   color: #fff;
@@ -10998,7 +11002,7 @@ textarea.form-control-lg {
 .footer__title {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
-  color: white;
+  color: #2e6286;
   font-size: 16px;
   font-weight: bolder;
   margin-bottom: 10px;
@@ -11547,19 +11551,21 @@ h6, .h6 {
   color: white;
 }
 
-.btn-clients-area {
+.botonlogin {
+  padding-left: 20px;
+  padding-right: 20px;
   cursor: pointer;
   background: black;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  padding-right: 14px;
-  padding-left: 14px;
-  line-height: 16px;
-  white-space: nowrap;
 }
-.btn-clients-area:hover {
+.botonlogin > a {
   color: white;
+}
+.botonlogin:hover {
+  background: white;
+}
+.botonlogin:hover > a {
+  background: white;
+  color: black;
 }
 
 #toggle-mobile-menu {
@@ -11901,11 +11907,15 @@ a {
   text-align: center !important;
 }
 
+.slick__items > .slick__div > img {
+  height: 150px;
+}
+
 span.network {
-  padding: 14px;
+  padding: 4px;
   border: 1px solid white;
   border-radius: 50px;
-  margin: auto;
+  margin: 5px;
   line-height: 20px;
 }
 span.network:hover, span.network:hover > a > i {

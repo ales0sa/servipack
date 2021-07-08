@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\{Categorias, Productos, Novedades, Subcategories, User, Orders, OrderItems};
+use \App\Models\{Categorias,TextosCart, Productos, Novedades, Subcategories, Orders, OrderItems};
 use Auth;
 use \MercadoPago\SDK;
 use Illuminate\Support\Facades\Validator;
+use Ales0sa\Laradash\Models\User;
 
 class WebsiteController extends Controller
 {
@@ -131,10 +132,17 @@ class WebsiteController extends Controller
             ], 422);
         }
         $user = new User;
-        $user->name   = $request->name;
-        $user->username = $request->email;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->name      = $request->name;
+        $user->username  = $request->email;
+        $user->email     = $request->email;
+        $user->password  = bcrypt($request->password);
+        $user->mayorista = 0;
+
+        
+        $user->save();
+
+        $user->assignRole('minorista');
+
         $user->save();
 
         Auth::login($user);
@@ -153,12 +161,44 @@ class WebsiteController extends Controller
 
         $data->each->append('client_price');
 
-        return $data;
+        $tc = TextosCart::find(1);
+
+        return [
+
+            'cart' => $data,
+            'retlocal' => $tc->retirolocal,
+            'retenvio' => $tc->caba,
+            'retexpre' => $tc->expreso,
+            'datosban' => $tc->datos_bancarios
+
+        ];
+        
 
     }
 
     public function createPreference(Request $request){
 
+        $validHelper = [];
+
+        if($request->fdp == 1){
+            $validHelper['comprobante'] = 'file|required|mimes:pdf,png,jpeg,jpg';
+        }
+        if($request->fde == 2){
+            $validHelper['expreso'] = 'required';
+            $validHelper['direccion'] = 'required';
+        }
+
+        if($request->fde == 1){
+            $validHelper['direccion'] = 'required';
+        }
+
+        
+        $validatedData = $request->validate($validHelper);
+
+        if($request->fdp == 1){
+            $filepath           = $request->file('comprobante')->store('comprobantes', 'public');
+            $orden->comprobante = '/storage/'.$filepath;
+        }
 
         $carrito       = json_decode($request->cart);
 
@@ -166,9 +206,17 @@ class WebsiteController extends Controller
         $mp            = 0;
 
         $orden         = new Orders;
-        //$orden->nombre = Auth::user()->name;
-        $orden->pago   = $request->fde;
-        $orden->envio  = $request->fdp;
+        
+        $orden->pago   = $request->fdp ?? 0;
+        $orden->envio  = $request->fde ?? 0;
+        $orden->user_id = Auth::user()->id;
+        $orden->telefono = $request->telefono;
+        $orden->direccion = $request->direccion;
+
+        if($request->fde == 2){
+            $orden->expreso = $request->expreso;
+        }
+
 
         $orden->save();
 
@@ -183,7 +231,8 @@ class WebsiteController extends Controller
                 $oi->quantity = $item->qty;
                 $oi->total = $tprod->client_price * $item->qty;
                 $oi->save();
-
+                $total += $oi->total;
+            
             }
       
         }
@@ -195,10 +244,10 @@ class WebsiteController extends Controller
 
             $mpconfig = \MercadoPago\SDK::config();
 
-            $mpconfig->set('CLIENT_SECRET', "SsCHoz6C9ak8ldwUFGThfyQWoHKAqfFd");
-            $mpconfig->set('CLIENT_ID', "3567431617030046");
-            $mpconfig->set('ACCESS_TOKEN', 'APP_USR-3567431617030046-102815-1c5c87a31d448a05bc00ea02b06ed910-321314813');
-            $mpconfig->set('sandbox_mode', "false");
+            $mpconfig->set('CLIENT_SECRET', "TEST-986954fd-91fc-4f7a-b61d-77476fd5ba4e");
+            //$mpconfig->set('CLIENT_ID', "3567431617030046");
+            $mpconfig->set('ACCESS_TOKEN', 'TEST-6129730822511978-062516-edb72da63b31e9395b60f70999ee6c05-566536301');
+            $mpconfig->set('sandbox_mode', "true");
            
             $preference = new \MercadoPago\Preference();
 
@@ -228,20 +277,67 @@ class WebsiteController extends Controller
                 }
               }
 
-
+              $preference->back_urls = [
+                
+                    "success" => url('/')."/myorders",
+                    "failure" => url('/')."/myorders",
+                    "pending" => url('/')."/myorders",
+                
+              ];
+              
               $preference->items = $pfo; 
               $preference->external_reference = $orden->id;
               $preference->notification_url = 'https://servipack.osolelaravel.com/hook';
               $preference->save(); 
               $orden->total = $total;
+              $orden->estado = 'Pago pendiente';
               $orden->save();
       
               return ['status' => 'success', 'oc' => $orden, 'mp' => $preference->init_point ]; 
         }
-    
+        $orden->total = $total;
+        $orden->save();
+
 
         return ['status' => 'success', 'oc' => $orden ]; 
 
+    }
+
+    public function myorder($id){
+        $order = Orders::with('items')->find($id);
+        return $order;
+    }
+    public function verorden($id){
+        $order = Orders::with('items')->find($id);
+        return view('orden', [ 'data' => $order ]);
+    }
+    public function myorders(Request $request){
+
+
+        if($request->get('external_reference')){
+
+            if($request->get('status') == 'approved'){
+
+                $order_id = $request->get('external_reference');
+
+                $order = Orders::find($order_id);
+
+                $order->estado = 'Pago confirmado.';
+
+                $order->save();
+
+            }
+
+        }
+
+
+        $auid = Auth::user()->id;
+
+        $ordenes = Orders::with('items')->where('user_id', $auid)->orderBy('created_at', 'DESC')->get();
+
+        return view('misordenes', [
+            'data'     => $ordenes
+        ]);
     }
 
 }

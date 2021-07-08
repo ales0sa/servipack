@@ -20,7 +20,7 @@
 	<div class="row">
 		@foreach ($featuredPosts as $post)
 			<div class="col-md-6">
-				<a href="{{ route('website.blog-post', $post->slug) }}" class="featured-posts">
+				<a href="{{ route('website.blog-post', $post->id) }}" class="featured-posts">
 					<div class="featured-posts__image" style="background-image: url({{ asset(Storage::url($post->image)) }});">
 						<div class="featured-posts__space"></div>
 						<div class="featured-posts__overlay">
@@ -28,7 +28,7 @@
 						</div>
 					</div>
 					<div class="featured-posts__times"><i class="far fa-clock"></i> {{ Date::parse($post->created_at)->ago() }}</div>
-					<div class="featured-posts__category">Categoria: {{ implode(', ', $post->tags()->pluck('name')->toArray()) }}</div>
+					
 					<div class="featured-posts__title">{{ $post->title }} <i class="fas fa-angle-right"></i></div>
 					<div class="featured-posts__resume">{{ substr(strip_tags($post->content), 0, 180) }} </div>
 				</a>
@@ -45,7 +45,7 @@
 				</div>
 				@foreach ($posts as $post)
 					<div class="col-md-6">
-						<a href="{{ route('website.blog-post', $post->slug) }}" class="featured-posts">
+						<a href="{{ route('website.blog-post', $post->id) }}" class="featured-posts">
 							<div class="featured-posts__image" style="background-image: url({{ asset(Storage::url($post->image)) }});">
 								<div class="featured-posts__space"></div>
 								<div class="featured-posts__overlay">
