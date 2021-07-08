@@ -37,6 +37,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a82e74739c.js" crossorigin="anonymous"></script>
+
+    <style>
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.newmenu ul{
+        padding: 0;
+        list-style: none;
+        background: #f2f2f2;
+    }
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+    }
+    ul li a{
+        display: block;
+        padding: 8px 3px;
+        color: #333;
+        text-decoration: none;
+    }
+    ul li a:hover{
+        color: #57afef;
+    }
+    ul li ul.dropdown{
+        min-width: 100%; /* Set width of the dropdown */
+        background: #f2f2f2;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 10px;
+        border-top: 7px solid #57afef;
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+       padding: 10px;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -57,7 +101,7 @@
       
      // $active = 'website';
 
-      
+      $categories = \App\Models\Categorias::get();
     ?>
     <div class="header__headband">
     <div class="container">
@@ -127,27 +171,58 @@
     </div>
 </div>
 <div class="header__navbar">
+
+
     <div class="container">
+
         <div class="row" style="margin-top: 9px; ">
-            <a href="{{ route('website.home') }}" class="col col-md-4 text-center text-md-start">
+
+        
+            <a href="{{ route('website.home') }}" class="col col-md-3 text-center text-md-start">
                 <img src="{{ $companyData->header_logo }}" alt="" class="img-fluid pb-3" width="290px" >
             </a>
-            <div class="col-md-8 header__navbar-collapse">
-                <a href="{{ route('website.home') }}" class="header__navbar-item {{ __active($active, 'website.home', 'header__navbar-item--active') }}">HOME</a>
-                <a href="{{ route('website.empresa') }}" class="header__navbar-item {{ __active($active, 'website.empresa', 'header__navbar-item--active') }}">EMPRESA</a>
-                <a href="{{ route('website.productos') }}" class="header__navbar-item {{ __active($active, 'website.productos', 'header__navbar-item--active') }}">Productos</a>
-                <a href="{{ route('website.clientes') }}" class="header__navbar-item {{ __active($active, 'website.clientes', 'header__navbar-item--active') }}">CLIENTES</a>
-                <a href="{{ route('website.novedades') }}" class="header__navbar-item {{ __active($active, 'website.cart', 'header__navbar-item--active') }}">Novedades</a>
-                <a href="{{ route('website.contacto') }}" class="header__navbar-item {{ __active($active, 'website.contacto', 'header__navbar-item--active') }}">contacto</a>
+            <div class="col-md-9 header__navbar-collapse">
 
+            <ul class="newmenu">
+        <li><a href="{{ route('website.home') }}" class="header__navbar-item {{ __active($active, 'website.home', 'header__navbar-item--active') }}">HOME</a></li>
+        <li><a href="{{ route('website.empresa') }}" class="header__navbar-item {{ __active($active, 'website.empresa', 'header__navbar-item--active') }}">EMPRESA</a></li>
+        <li>
+        <a href="{{ route('website.productos') }}" class="dropdown header__navbar-item {{ __active($active, 'website.productos', 'header__navbar-item--active') }}">Productos <i class="fa fa-caret-down"></i> </a>
+            <ul class="dropdown">
+                @foreach($categories as $cat)
+                <li><a href="/{{ $cat->id }}/productos">{{ $cat->title }}</a></li>
+                @endforeach
+            </ul>
+        </li>
+        <li> <a href="{{ route('website.clientes') }}" class="header__navbar-item {{ __active($active, 'website.clientes', 'header__navbar-item--active') }}">CLIENTES</a>
+        
+        </li>
+        <li>
+        <a href="{{ route('website.novedades') }}" class="header__navbar-item {{ __active($active, 'website.cart', 'header__navbar-item--active') }}">Novedades</a>
+                
+        </li>
 
+        <li>
+        <a href="{{ route('website.contacto') }}" class="header__navbar-item {{ __active($active, 'website.contacto', 'header__navbar-item--active') }}">contacto</a> 
+        </li>
+
+        <li>
+        
                 <cart ref="cart" />
+        
+        </li>
+    </ul>
+
+
+
                 
             </div>
             <div class="col-auto d-flex align-items-center d-md-none">
                 <button type="button" id="toggle-mobile-menu" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-bars"></i></button>
             </div>
         </div>
+
+
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -308,7 +383,9 @@
             </div>
         </div>
     </div>
-
+    <a href="https://api.whatsapp.com/send?phone=5491136786440&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
     <script>
         var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
         var collapseList = collapseElementList.map(function (collapseEl) {

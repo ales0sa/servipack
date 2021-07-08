@@ -10,13 +10,43 @@
       $clientes    = \App\Models\Clientes::pluck('image');
       ?>
     @include('components.carousel', ['data' => \App\Models\SlidersHome::get()])
-    <div class="row-fluid" style="background: #00AFEF; height: 110px;">
+    <div class="row-fluid" style="background: #00AFEF; height: 86px;">
+
+    <div class="container p-4">
+
+
+<form class="d-flex" method="POST" action="/search">
+
+
+<select class="form-select" aria-label="Default select example">
+  <option selected>Todas las categorías</option>
+  @foreach($categorias as $cat)
+  <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                @endforeach
+</select>
+
+        <input class="form-control ms-3 me-3" type="search" 
+        placeholder="Palabra clave" aria-label="Buscar" required>
+
+
+        <button class="btn btn-secondary" style="b" type="submit">Buscar</button>
+      </form>
+
+
+
+
+</div>
+
+
+
+
     </div>
+    
 
     <div class="container mb-5">
         <h3 class="block-title mb-2 mt-2">NUESTRAS CATEGORÍAS</h3>
         <div class="category-list">
-            @foreach ($categorias as $item)
+            @foreach ($categorias->slice(0, 3) as $item)
             <a  href="{{ route('website.productos.grupo', $item->id) }}" 
                 class="category-list__item">
                 <div class="category-list__overlay"></div>
