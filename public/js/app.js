@@ -6969,7 +6969,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         _this2.errors = error.response.data.errors;
       });
     },
+    removeFromCart: function removeFromCart(index) {
+      this.finalCart.splice(index, 1); //localStorage.setItem('servipackCart', this.finalCart);
+    },
     del: function del(id, qty) {
+      console.log(asd);
       var index = this.parsedcart.findIndex(function (p) {
         return p.itemId == id;
       });
@@ -12605,7 +12609,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cart-widget[data-v-b7f93bea] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 69px;\n    height: 85px;\n\n    border-radius: 50%;\n}\n.items-count[data-v-b7f93bea] {\n    width: 34px;\n    height: 34px;\n    border: 3px solid #4ea1c6;\n    border-radius: 50%;\n    position: absolute;\n    top: calc(50% - 30px - 7px);\n    left: calc(50% - 30px + 40px);\n    z-index: 1;\n    font-size: 19px;\n    font-weight: bolder;\n    line-height: 26px;\n    text-align: center;\n    color: #fff;\n    background-color: #4ea1c6;\n}\n.cart-icon[data-v-b7f93bea] {\n}\n.cart-widget:hover > i[data-v-b7f93bea]{\n\n        color: #4ea1c6;\n\n        zoom: 1.5;\n}\nsvg[data-v-b7f93bea] {\n        width: 80px;\n        height: 95px;\n        position: absolute;\n        top: -6px;\n        left: -6px;\n}\npath[data-v-b7f93bea] {\n        stroke: #111282;\n        stroke-width: 6;\n        fill: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cart-widget[data-v-b7f93bea] {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 69px;\n    height: 85px;\n\n    border-radius: 50%;\n}\n.items-count[data-v-b7f93bea] {\n    width: 34px;\n    height: 34px;\n    border: 3px solid #662717;\n    border-radius: 50%;\n    position: absolute;\n    top: calc(50% - 30px - 7px);\n    left: calc(50% - 30px + 40px);\n    z-index: 1;\n    font-size: 13px;\n    font-weight: bolder;\n    line-height: 26px;\n    text-align: center;\n    color: #fff;\n    background-color: #c64e4e;\n}\n.cart-icon[data-v-b7f93bea] {\n}\n.cart-widget:hover > i[data-v-b7f93bea]{\n\n        color: #4ea1c6;\n\n        zoom: 1.5;\n}\nsvg[data-v-b7f93bea] {\n        width: 80px;\n        height: 95px;\n        position: absolute;\n        top: -6px;\n        left: -6px;\n}\npath[data-v-b7f93bea] {\n        stroke: #111282;\n        stroke-width: 6;\n        fill: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12677,7 +12681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".slick__container[data-v-84ecea20] {\n  display: flex;\n}\n.slick__div[data-v-84ecea20] {\n  vertical-align: middle;\n  box-shadow: 4px 3px 6px #00000029;\n  border: 1px solid #F2F2F2;\n  border-radius: 12px;\n  padding: 17px;\n  background: white;\n  width: 160px;\n  text-align: center;\n  height: 100%;\n}\n.slick__items[data-v-84ecea20] {\n  flex-grow: 1;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  overflow: hidden;\n}\n.slick__arrow[data-v-84ecea20] {\n  border: none;\n  background: none;\n  color: rgba(0, 0, 0, 0.3);\n}\n.slick__arrow[data-v-84ecea20]:hover {\n  color: rgba(0, 0, 0, 0.4);\n}\n.slick__dots[data-v-84ecea20] {\n  display: flex;\n  justify-content: center;\n}\n.slick__dot[data-v-84ecea20] {\n  width: 16px;\n  height: 16px;\n  border-radius: 100%;\n  background-color: var(--gray);\n  margin: 0 5px;\n}\n.slick__dot--active[data-v-84ecea20] {\n  background-color: var(--darkgray);\n}\n.slick img[data-v-84ecea20] {\n  height: 40px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".slick__container[data-v-84ecea20] {\n  display: flex;\n}\n.slick__div[data-v-84ecea20] {\n  vertical-align: middle;\n  box-shadow: 4px 3px 6px #00000029;\n  border: 1px solid #F2F2F2;\n  border-radius: 12px;\n  padding: 17px;\n  background: white;\n  width: 160px;\n  text-align: center;\n  height: 100%;\n}\n.slick__items[data-v-84ecea20] {\n  flex-grow: 1;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  overflow: hidden;\n}\n.slick__arrow[data-v-84ecea20] {\n  border: none;\n  background: none;\n  color: rgba(0, 0, 0, 0.3);\n}\n.slick__arrow[data-v-84ecea20]:hover {\n  color: rgba(0, 0, 0, 0.4);\n}\n.slick__dots[data-v-84ecea20] {\n  display: flex;\n  justify-content: center;\n}\n.slick__dot[data-v-84ecea20] {\n  width: 16px;\n  height: 16px;\n  border-radius: 100%;\n  background-color: var(--gray);\n  margin: 0 5px;\n}\n.slick__dot--active[data-v-84ecea20] {\n  background-color: var(--darkgray);\n}\n.slick img[data-v-84ecea20] {\n  height: 140px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34857,7 +34861,7 @@ var render = function() {
                         },
                         on: {
                           click: function($event) {
-                            return _vm.finalCart.splice(index, 1)
+                            return _vm.removeFromCart(index)
                           }
                         }
                       },

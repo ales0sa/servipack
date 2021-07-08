@@ -23,6 +23,22 @@
         &-networks {
             border-left: 1px solid var(--gray);
             padding-left: 20px;
+            display: inline-flex;
+            &>div {
+                margin-top: auto;
+                padding: 4px;
+                margin-left: 7px;
+                margin-bottom: auto;
+                
+                &a {
+                    
+                    &img {
+
+
+
+                    }
+                }
+            }
             @include media-breakpoint-down(md) {
                 display: none;
             }

@@ -135,18 +135,18 @@
     .items-count {
     width: 34px;
     height: 34px;
-    border: 3px solid #4ea1c6;
+    border: 3px solid #662717;
     border-radius: 50%;
     position: absolute;
     top: calc(50% - 30px - 7px);
     left: calc(50% - 30px + 40px);
     z-index: 1;
-    font-size: 19px;
+    font-size: 13px;
     font-weight: bolder;
     line-height: 26px;
     text-align: center;
     color: #fff;
-    background-color: #4ea1c6;
+    background-color: #c64e4e;
     }
 
     .cart-icon {

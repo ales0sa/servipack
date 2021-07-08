@@ -9,6 +9,7 @@
         $clinks = \DB::table('config_vars')->where('config_key', 'footer_info')->get('config_value');
         $header_networks = \DB::table('config_vars')->where('config_key', 'header_networks')->get('config_value');
         $active =  \Route::currentRouteName();
+        $redes =  json_decode($header_networks[0]->config_value); 
     ?>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -61,7 +62,7 @@
     <div class="header__headband">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 d-flex">
+            <div class="col-md-8 d-flex">
                 
                 <div class="header__headband-item">
                     <a href="mailto:{{$companyData->header_email}}">
@@ -77,7 +78,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-2 d-flex justify-content-end">
+            <div class="col-md-4 d-flex justify-content-end">
               
               <div class="botonlogin"
                 
@@ -88,21 +89,38 @@
                     <a href="{{ route('website.client-area') }}" class="btn-clients-area"><i class="fas fa-user"></i> Ingresar / Registrarse </a>
                 
                 @else
-                <div class="">
+                
                     <a class="btn-clients-area" href="/myorders"><i class="fas fa-user me-2"></i> {{ auth()->user()->name }}</a>
                     
-                </div>
                 @endif
 
               </div>
 
                 <div class="header__headband-networks">
-                    <a href="" class="header__headband-item">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" class="header__headband-item">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                @foreach($redes as $red)                              
+                           
+                                <div>
+                                <a href="{{ $red->link }}" >
+                                    
+                                    @switch($red->icon)
+                                        @case('fa fa-facebook')
+                                            <img src="/fb.png" />
+                                        @break
+                                        @case('fa fa-instagram')
+                                            <img src="/in.png" />
+                                        @break
+                                        @case('fa fa-youtube')
+                                            <img src="/yt.png" />
+                                        @break
+                                        @case('fa fa-linkedin')
+                                            <img src="/li.png" />
+                                        @break
+                                    @endswitch
+
+                                    <!-- <i class="{{ $red->icon }}"> </i> -->
+                                </a>
+                                </div>
+                        @endforeach
                 </div>
             </div>
         </div>
@@ -164,7 +182,7 @@
                         <img src="/storage/{{ $cf->config_value }}" width="262px" >
 
                             
-                        <?php $redes =  json_decode($header_networks[0]->config_value); ?>
+                        <?php ?>
 
                         <div class="networks mt-3">
                         @foreach($redes as $red)                              

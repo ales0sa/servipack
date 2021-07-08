@@ -130,7 +130,7 @@
             }
         }
         img {
-            height: 40px;
+            height: 140px;
         }
     }
 </style>

@@ -122,7 +122,7 @@
               cursor: pointer;
               line-height: 40px;
             "
-            @click="finalCart.splice(index, 1)"
+            @click="removeFromCart(index)"
           >
             X
           </span>
@@ -479,7 +479,14 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
+    removeFromCart(index){
+      this.finalCart.splice(index, 1);
+
+      //localStorage.setItem('servipackCart', this.finalCart);
+
+    },
     del(id, qty) {
+      console.log(asd)
       var index = this.parsedcart.findIndex((p) => p.itemId == id);
 
       let parsed = Number(this.parsedcart[index].qty);
