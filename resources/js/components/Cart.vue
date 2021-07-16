@@ -128,14 +128,14 @@
     align-items: center;
     width: 69px;
     height: 85px;
-
+    line-height: 80px;
     border-radius: 50%;
 }
 
     .items-count {
     width: 34px;
     height: 34px;
-    border: 3px solid #662717;
+    border: 3px solid #4ea1c6;
     border-radius: 50%;
     position: absolute;
     top: calc(50% - 30px - 7px);
@@ -146,7 +146,7 @@
     line-height: 26px;
     text-align: center;
     color: #fff;
-    background-color: #c64e4e;
+    background-color: #111282;
     }
 
     .cart-icon {
@@ -157,7 +157,8 @@
 
         color: #4ea1c6;
 
-        zoom: 1.5;
+        /*zoom: 1.5;*/
+            line-height: 80px;
     }
     svg {
         width: 80px;

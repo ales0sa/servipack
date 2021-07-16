@@ -1,8 +1,9 @@
 <template>
 <div>
 
-<div style="display: inline-table;">
-        <input  type="number" class="iqty" :min="unit" :step="unit" v-model="qty">
+<div style="display: inline-flex;">
+
+                <div class="product-list__title"> {{ ptitle }} </div>
         <!-- <button
             class="add-to-cart-button"
             v-bind="$attrs"
@@ -21,11 +22,8 @@
             v-bind="$attrs"
             v-on="$listeners"
         >
-            <span>Al Carrito</span> <i class = "fas fa-shopping-cart"></i>
+             <i class = "fas fa-shopping-cart"></i>
         </button>
-        <div>
-                    <strong>$ {{ formatPrice(qty * (price / unit)) }} </strong>  POR <strong>{{ qty }}</strong> UNIDADES
-        </div>
     </div>
 </div>
     
@@ -50,7 +48,7 @@
                 return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
             }
         },
-        props: [ 'unit', 'price', 'id' ],
+        props: [ 'unit', 'price', 'id', 'ptitle' ],
         name: 'AddToCartButton'
     };
 </script>
@@ -58,7 +56,7 @@
 <style scoped>
     .add-to-cart-button {
         display: inline-block;
-        padding: 0.4em 1em;
+        padding: 1.3em;
         border: none;
         font: inherit;
         font-size: 15px;
@@ -75,8 +73,6 @@
         font: inherit;
         font-size: 15px;
         text-transform: uppercase;
-        border-top-right-radius: 25px;
-        border-bottom-right-radius: 25px;
         color: #fff;
         background-color: #111282;
         cursor: pointer;

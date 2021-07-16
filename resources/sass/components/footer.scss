@@ -35,7 +35,7 @@
         font-size: 13px;
         &:hover {
 
-            color: #00afef;
+            color: #2e6286;
            
         }
     }
@@ -60,10 +60,12 @@
         align-items: center;
         border-radius: 100%;
         text-decoration: none;
+
         margin-left: 7.5px;
         &:hover {
             background-color: #fff;
             color: var(--orange);
+            filter: grayscale(0%);
         }
         &:nth-child(1) {
             margin-left: 15px;
@@ -95,8 +97,8 @@
         text-transform: uppercase;
     }
     
-    &__contact-item {
-        color: var(--darkgray);
+    &__contact-icon {
+        color: #00AFEF;
         display: block;
         margin-bottom: 5px;
         padding-left: 25px;
@@ -105,6 +107,7 @@
         text-decoration: none;
         position: relative;
         i {
+            color: #00AFEF;
             position: absolute;
             left: 0;
             top: 0;

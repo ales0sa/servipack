@@ -25,7 +25,9 @@ Vue.component('slick', require('./components/SlickComponent.vue').default);
 Vue.component('regandlog', require('./components/RegAndLog.vue').default);
 
 
+Vue.component('quick-atc', require('./components/QuickATC.vue').default);
 Vue.component('add-to-cart', require('./components/AddToCart.vue').default);
+
 Vue.component('cart', require('./components/Cart.vue').default);
 Vue.component('checkout', require('./components/Checkout.vue').default);
 

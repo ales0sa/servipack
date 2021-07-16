@@ -46,6 +46,7 @@
 }
 
 .newmenu ul{
+
         padding: 0;
         list-style: none;
         background: #f2f2f2;
@@ -108,45 +109,42 @@
         <div class="row">
             <div class="col-md-8 d-flex">
                 
-                <div class="header__headband-item">
-                    <a href="mailto:{{$companyData->header_email}}">
+                <a style="color:white;" class="header__headband-item" href="mailto:{{$companyData->header_email}}">
+                        <div style="padding-left: 15px; padding-right: 15px;">
                         <i class="fas fa-envelope"></i>
                         {{ $companyData->header_email }}
                         
+                    </div>
                     </a>
-                </div>
-                <div class="header__headband-item">
-                    <a href="tel:{{$companyData->header_telefono}}">
+            
+                    <a style="color:white;"  class="header__headband-item" href="tel:{{$companyData->header_telefono}}">
+                    <div style="padding-left: 15px; padding-right: 15px;">
                         <i class="fas fa-phone-alt"></i>
                         {{ $companyData->header_telefono }}
-                    </a>
-                </div>
+</div>
+                </a>
             </div>
             <div class="col-md-4 d-flex justify-content-end">
-              
-              <div class="botonlogin"
+
                 
-              >
+                <div class="botonlogin"
                 
-              @if ( !auth()->check() )
+                >
                 
-                    <a href="{{ route('website.client-area') }}" class="btn-clients-area"><i class="fas fa-user"></i> Ingresar / Registrarse </a>
-                
-                @else
-                
-                    <a class="btn-clients-area" href="/myorders"><i class="fas fa-user me-2"></i> {{ auth()->user()->name }}</a>
-                    
-                @endif
+                <a  class="btn-clients-area" href="/contacto" > 
+                <i class="fas fa-headphones"></i>
+                CONTACTO </a>
+
 
               </div>
 
-                <div class="header__headband-networks">
-                @foreach($redes as $red)                              
-                           
-                                <div>
-                                <a href="{{ $red->link }}" >
+              <div>
+              @foreach($redes as $red)                              
+              
+                                    <div class="header__headband-networks">
+                                <a href="{{ $red->link }}" style="color: white;" >
                                     
-                                    @switch($red->icon)
+                                    <!-- @switch($red->icon)
                                         @case('fa fa-facebook')
                                             <img src="/fb.png" />
                                         @break
@@ -159,9 +157,8 @@
                                         @case('fa fa-linkedin')
                                             <img src="/li.png" />
                                         @break
-                                    @endswitch
-
-                                    <!-- <i class="{{ $red->icon }}"> </i> -->
+                                    @endswitch -->
+<i class="{{ $red->icon }}"> </i> 
                                 </a>
                                 </div>
                         @endforeach
@@ -183,14 +180,14 @@
             </a>
             <div class="col-md-9 header__navbar-collapse">
 
-            <ul class="newmenu">
+            <ul class="newmenu" style="    margin-bottom: 0px;">
         <li><a href="{{ route('website.home') }}" class="header__navbar-item {{ __active($active, 'website.home', 'header__navbar-item--active') }}">HOME</a></li>
         <li><a href="{{ route('website.empresa') }}" class="header__navbar-item {{ __active($active, 'website.empresa', 'header__navbar-item--active') }}">EMPRESA</a></li>
         <li>
-        <a href="{{ route('website.productos') }}" class="dropdown header__navbar-item {{ __active($active, 'website.productos', 'header__navbar-item--active') }}">Productos <i class="fa fa-caret-down"></i> </a>
+        <a href="{{ route('website.productos') }}" class="dropdown header__navbar-item {{ __active($active, 'website.productos', 'header__navbar-item--active') }}">Productos &nbsp &nbsp <i class="fa fa-caret-down"></i> </a>
             <ul class="dropdown">
                 @foreach($categories as $cat)
-                <li><a href="/{{ $cat->id }}/productos">{{ $cat->title }}</a></li>
+                <li><a href="/{{ $cat->id }}/productos" style="text-transform: uppercase;">{{ $cat->title }}</a></li>
                 @endforeach
             </ul>
         </li>
@@ -203,7 +200,19 @@
         </li>
 
         <li>
-        <a href="{{ route('website.contacto') }}" class="header__navbar-item {{ __active($active, 'website.contacto', 'header__navbar-item--active') }}">contacto</a> 
+        @if ( !auth()->check() )
+                
+            <a href="{{ route('website.client-area') }}" ><i class="fas fa-user"></i> MI CUENTA </a>
+            
+        @else
+            
+                <a  href="/myorders"><i class="fas fa-user me-2"></i> {{ auth()->user()->name }}</a>
+                
+        @endif
+
+        <!-- <a href="{{ route('website.contacto') }}" class="header__navbar-item {{ __active($active, 'website.contacto', 'header__navbar-item--active') }}">contacto</a>  -->
+
+
         </li>
 
         <li>
@@ -259,33 +268,31 @@
                             
                         <?php ?>
 
-                        <div class="networks mt-3">
+                    <div class="networks mt-3">
                         @foreach($redes as $red)                              
                             <span class="network">
+
+                                <a href="{{ $red->link }}"  >
                                 
-                                <a href="{{ $red->link }}" >
-                                    
                                     @switch($red->icon)
                                         @case('fa fa-facebook')
-                                            <img src="/fb.png" />
+                                            <img src="/fb.png" style="width: 30px;"/>
                                         @break
                                         @case('fa fa-instagram')
-                                            <img src="/in.png" />
+                                            <img src="/in.png"  style="width: 30px;"/>
                                         @break
                                         @case('fa fa-youtube')
-                                            <img src="/yt.png" />
+                                            <img src="/yt.png"  style="width: 30px;"/>
                                         @break
                                         @case('fa fa-linkedin')
-                                            <img src="/li.png" />
+                                            <img src="/li.png"  style="width: 30px;"/>
                                         @break
                                     @endswitch
-
                                     <!-- <i class="{{ $red->icon }}"> </i> -->
                                 </a>
-
                             </span>
                         @endforeach
-                        </div>
+                    </div>
 
 
 
@@ -299,14 +306,13 @@
 
                         <div class="col-6">
                             <a class="footer__item" href="/">Home</a>
-                            <a class="footer__item" href="/">Empresa</a>
-                            <a class="footer__item" href="/">Producto</a>
-                            <a class="footer__item" href="/">Clientes</a>
+                            <a class="footer__item" href="/empresa">Empresa</a>
+                            <a class="footer__item" href="/productos">Producto</a>
+                            <a class="footer__item" href="/clientes">Clientes</a>
                         </div>
                         <div class="col-6">
-                            <a class="footer__item" href="/">Novedades</a>
-                            <a class="footer__item" href="/">Cotizar</a>
-                            <a class="footer__item" href="/">Contacto</a>
+                            <a class="footer__item" href="/novedades">Novedades</a>
+                            <a class="footer__item" href="/contacto">Contacto</a>
                         </div>
 
                         </div>
@@ -328,8 +334,8 @@
                                 @foreach($data->slice(0,2)  as $cl)
 								<a href="{{ $cl->link }}">
 									<div class="footer__contact-icon"  >
-                                    
-                                    @switch($cl->icon)
+                                    <i class="{{ $cl->icon }}" ></i>
+                                    <!-- @switch($cl->icon)
                                         @case('fa fa-map')
                                         <img style="width: 22px;"  src="https://img.icons8.com/ios-filled/50/fa314a/marker.png"/>
                                         @break
@@ -337,7 +343,7 @@
                                         <img style="width: 22px;"  src="https://img.icons8.com/material/24/4a90e2/mail.png"/>
                                         @break
                                     @endswitch
-    
+     -->
                                     </div>
 									<div class="mx-3" > {{ $cl->text }}</div>
 								</a>
@@ -348,8 +354,10 @@
 
 
 
-								<a href="{{ $cl->link }}">
-
+								<a href="{{ $cl->link }}" style="">
+                                <div class="footer__contact-icon"  >
+                                <i class="{{ $cl->icon }}" ></i>
+<!-- 
 									  @switch($cl->icon)
                                         @case('fa fa-phone')
                                         <img  style="width: 22px;"  src="https://img.icons8.com/ios/50/ffffff/apple-phone.png"/>@break
@@ -357,9 +365,10 @@
                                         @case('fab fa-whatsapp')
                                         <img style="width: 22px;"  src="https://img.icons8.com/color/50/000000/whatsapp--v1.png"/>
                                         @break
-                                    @endswitch
+                                    @endswitch -->
 									<div class="mx-2" > {{ $cl->text }}</div>
 								</a>
+                                </div>
 								@endforeach
                                 </div>
 

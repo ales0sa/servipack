@@ -229,7 +229,7 @@ class WebsiteController extends Controller
                 $oi->order_id = $orden->id;
                 $oi->title = $tprod->name;
                 $oi->quantity = $item->qty;
-                $oi->total = $tprod->client_price * $item->qty;
+                $oi->total = $tprod->client_price;
                 $oi->save();
                 $total += $oi->total;
             
@@ -270,9 +270,9 @@ class WebsiteController extends Controller
                         'category_id' =>  'factory',
                         'title' => $tprod->name,
                         'description' => $tprod->short_desc,//$item['instrucciones'],
-                        'quantity' => $item->qty,
+                        'quantity' => 1,
                         'currency_id' => 'ARS',
-                        'unit_price' =>  intval($tprod->client_price * $item->qty)
+                        'unit_price' =>  intval($item->qty * $tprod->client_price)
                     ];
                 }
               }

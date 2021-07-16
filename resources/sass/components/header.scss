@@ -2,7 +2,7 @@
     &__headband {
         background-color: #354B9C;
         font-family: var(--raleway);
-        font-size: 16px;
+        font-size: 13px;
         height: 40px;
         line-height: 40px;
         white-space: nowrap;
@@ -21,22 +21,27 @@
             }
         }
         &-networks {
-            border-left: 1px solid var(--gray);
-            padding-left: 20px;
-            display: inline-flex;
+
+            /* padding-left: 20px; */
+            display: inline-grid;
+            max-height: 40px;
+            width: 40px;
+            text-align: center;
             &>div {
                 margin-top: auto;
                 padding: 0px;
-                margin-right: 3px;
+
                 margin-bottom: auto;
-                
-                &a {
+                &>a {
+                    color: white !important;
+                }
+                &a:hover {
+
+                    background: #00AFEF;
+
+
+
                     
-                    &img {
-
-
-
-                    }
                 }
             }
             @include media-breakpoint-down(md) {
@@ -91,4 +96,8 @@
             user-select: none;
         }
     }
+}
+
+.header__headband-networks:hover {
+    background: #44a0c6;
 }

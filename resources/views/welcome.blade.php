@@ -94,20 +94,44 @@
     <div class="container mb-5">
         <h3 class="block-title mb-2 mt-2">PRODUCTOS DESTACADOS</h3>
         <div class="product-list" >
+            
             @foreach ($starreds as $item)
-            <a  href="{{ route('website.producto', $item->id) }}" 
+            
+            <div  href="" 
                 class="product-list__item">
-                <div class="product-list__overlay"></div>
+                <div class="product-list__overlay">
+
+                    <div class="vermas">
+                        <p style="font-weight: 500; padding:0; margin: 0;">$ {{ display_price($item->price)}}</p>
+                        <p style="color: #; margin: 0; font-size: 10px;"> {{ $item->unit }} unidades.</p>
+                    </div>
+
+                </div>
                 <div class="product-list__container"  style="
                 background-image: url({{ $item->image }});
                 height: 250px;
-                ">
+                "
+                onclick="location.href='{{ route('website.producto', $item->id) }}'"
+                >
                    
                 </div>
                 
-                <div class="product-list__title"> {{ $item->name }} </div>
-            </a>
+<quick-atc @click="$refs.cart.add({{$item->id}}, $refs.me.qty)"
+            unit="{{ $item->unit ?? 1 }}"
+            ptitle="{{ $item->name }}"
+            price="{{ $item->client_price }}"
+            id="{{ $item->id }}"
+            ref="me"
+            />
+                    
+                
+</div>
+         
+
             @endforeach
+
+                
+
         </div>
     </div>
 

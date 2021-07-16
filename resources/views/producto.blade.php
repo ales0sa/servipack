@@ -29,11 +29,11 @@
             <div id="collapse{{ $cat->id }}" 
                 class="accordion-collapse @if($cat->id == $producto->pcat_id) collapsed  @else   collapse show @endif " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 @foreach($cat->subcategorias as $cp)
-                  <a class="accordion-body  @if($cp->id == $selprod) a_b_a @else   @endif" 
+                  <a class="accordion-body  @if($cp->id == $producto->idcategoria) a_b_a @else   @endif" 
                   href="{{ route('website.productos.subgrupo', [ $cp->id ])}}"
                         >
                             <div data-toggle="collapse" data-target="#collapse{{$cat->id}}-{{$cp->id}}"  style="font-weight: bolder;" >
-                                    {{ $cp->name }}
+                                    {{ $cp->name }} 
                             </div>
                   </a>
                 @endforeach
@@ -93,6 +93,10 @@
     <div class = "product-content">
       <h2 class = "product-title">{{ $producto->name }}</h2>
 
+      <div class = "product-title" style="font-size: 20px; color: #354B9C">
+        $ {{ display_price($producto->price) }}
+        <small style="color: black;"> ( {{ $producto->unit }} unidades )
+      </div>
       <div class = "product-detail mb-3">
         
         {!! $producto->short_desc !!}
