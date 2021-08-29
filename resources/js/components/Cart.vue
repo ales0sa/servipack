@@ -74,7 +74,7 @@
                 
                 //console.log(d)
                 this.cart = d
-                localStorage.setItem("servipackCart", JSON.stringify(this.cart));
+                localStorage.setItem("servipackCart", JSON.stringify(d));
                 //this.cart = JSON.parse(localStorage.getItem("servipackCart"));              
 
                 setTimeout(() => this.itemsCount++, 275);

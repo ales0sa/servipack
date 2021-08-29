@@ -419,8 +419,15 @@ export default {
 
       let form = new FormData();
 
-      form.append("expreso", this.expreso);
-      form.append("comprobante", this.comprobante);
+      if(this.fde == 2){
+
+        form.append("expreso", this.expreso);
+      }
+
+      if(this.fde == 1){
+        form.append("comprobante", this.comprobante);
+      }
+
       form.append("fdp", this.fdp);
       form.append("fde", this.fde);
       form.append("direccion", this.direccion);
@@ -485,8 +492,19 @@ export default {
       //localStorage.setItem('servipackCart', this.finalCart);
 
     },
-    del(id, qty) {
-      console.log(asd)
+    del(itemId, qty) {  
+                var index = this.parsedcart.findIndex((p) => p.itemId == itemId);
+
+                let parsed = Number(this.parsedcart[index].qty) - qty;
+                var a = this.cart, b = [{itemId, parsed}]
+                var c = a.concat(b)
+                var d = c.filter((item, pos) => c.indexOf(item) === pos)
+                
+                console.log(d)         
+
+
+    },
+      del(id, qty) {
       var index = this.parsedcart.findIndex((p) => p.itemId == id);
 
       let parsed = Number(this.parsedcart[index].qty);
@@ -496,10 +514,9 @@ export default {
         unit = 1;
       }
 
-      if (parsed !== unit) {
-        this.parsedcart[index].qty = parsed - unit;
-        this.$root.$refs.cart.add(index, pqty);
-      }
+      this.parsedcart[index].qty = parsed - unit;
+      this.$root.$refs.cart.add(this.parsedcart[index].itemId, -qty);
+      //this.$root.$refs.cart.add(index, pqty);
 
       //  console.log(this.finalCart)
     },
@@ -514,8 +531,8 @@ export default {
       }
 
       this.parsedcart[index].qty = parsed + unit;
-
-      this.$root.$refs.cart.add(index, pqty);
+      this.$root.$refs.cart.add(this.parsedcart[index].itemId, qty);
+      //this.$root.$refs.cart.add(index, pqty);
 
       //  console.log(this.finalCart)
     },

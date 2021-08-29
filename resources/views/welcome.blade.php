@@ -116,7 +116,7 @@
                    
                 </div>
                 
-<quick-atc @click="$refs.cart.add({{$item->id}}, $refs.me.qty)"
+<quick-atc @click="$refs.cart.add({{$item->id}}, {{ $item->unit ?? 1 }})"
             unit="{{ $item->unit ?? 1 }}"
             ptitle="{{ $item->name }}"
             price="{{ $item->client_price }}"

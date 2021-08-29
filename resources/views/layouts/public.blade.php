@@ -14,7 +14,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', __meta('default', 'title'))</title>
+        <!-- <title>@yield('title', __meta('default', 'title'))</title> -->
+        <title> ServiPack </title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
 
@@ -28,15 +29,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossorigin="anonymous">
+    <link rel="preconnect" rel="noreferrer" href="https://fonts.gstatic.com">    
+    <!-- <link rel="stylesheet" rel="noreferrer" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" crossorigin="anonymous"> -->
     <!-- Styles -->
-    <link href="{{ asset('css/website.css') }}?{{ $assets_version }}" rel="stylesheet">
+    <link href="{{ asset('css/website.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a82e74739c.js" crossorigin="anonymous"></script>
+    <link rel="noreferrer" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="noreferrer" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <script rel="noreferrer" src="https://kit.fontawesome.com/a82e74739c.js" crossorigin="anonymous"></script>
 
     <style>
 
@@ -93,13 +94,16 @@
 
 
     // HARDCODEADO 
+
+        $logo_footer = 
       $companyData =  new stdClass();
       $companyData->header_direccion = 'test';
       $companyData->header_email = 'info@servipackembalajes.com.ar';
       $companyData->header_telefono  = '11-3678-6440';
       $companyData->header_direccion = 'test';
       $companyData->header_logo  = '/logo.png';
-      
+      $companyData->footer_logo  = '/footer.png';
+       
      // $active = 'website';
 
       $categories = \App\Models\Categorias::get();
@@ -172,15 +176,15 @@
 
     <div class="container">
 
-        <div class="row" style="margin-top: 9px; ">
+        <div class="row" style="margin-top: 9px;     min-height: 89.33px;">
 
         
             <a href="{{ route('website.home') }}" class="col col-md-3 text-center text-md-start">
-                <img src="{{ $companyData->header_logo }}" alt="" class="img-fluid pb-3" width="290px" >
+                <img src="{{ $companyData->header_logo }}" alt="" class="img-fluid pb-3" width="290px" height="90px">
             </a>
             <div class="col-md-9 header__navbar-collapse">
 
-            <ul class="newmenu" style="    margin-bottom: 0px;">
+            <ul class="newmenu" style="margin-bottom: 0px;">
         <li><a href="{{ route('website.home') }}" class="header__navbar-item {{ __active($active, 'website.home', 'header__navbar-item--active') }}">HOME</a></li>
         <li><a href="{{ route('website.empresa') }}" class="header__navbar-item {{ __active($active, 'website.empresa', 'header__navbar-item--active') }}">EMPRESA</a></li>
         <li>
@@ -215,7 +219,7 @@
 
         </li>
 
-        <li>
+        <li style="     min-height: 49.33px;">
         
                 <cart ref="cart" />
         
@@ -238,7 +242,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header py-0">
-            <img src="{{ $companyData->header_logo }}" alt="" style="max-width: 160px;">
+            <img src="{{ $companyData->header_logo }}" alt="" style="max-width: 160px;" width="290px" height="90px">>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="list-group">
@@ -255,15 +259,18 @@
 
         @yield('content')</div>
     
-        <div class="footer" style="background: #000000; padding-bottom: 30px; border-top: 12px solid #00AFEF;">
-
+        <div class="footer" style="background: #333333; 
+        padding-bottom: 30px; padding-top: 30px;/*border-top: 12px solid #00AFEF;*/">
+ 
 		<footer class="footer mt-5" >
 			<div class="footer__overlay"></div>
 			<div class="container footer__container">
 				<div class="footer__container-overlay" ></div>
 				<div class="row">
 					<div class="col-lg-3 footer__first-column">
-                        <img src="/storage/{{ $cf->config_value }}" width="262px" >
+                        
+                        <img style="filter: drop-shadow(1px 2px 3px black);" 
+                        src="{{ $companyData->header_logo }}">
 
                             
                         <?php ?>
@@ -276,16 +283,16 @@
                                 
                                     @switch($red->icon)
                                         @case('fa fa-facebook')
-                                            <img src="/fb.png" style="width: 30px;"/>
+                                            <img width="30px" height="30px"  src="/fb.png" style="width: 30px;"/>
                                         @break
                                         @case('fa fa-instagram')
-                                            <img src="/in.png"  style="width: 30px;"/>
+                                            <img width="30px" height="30px" src="/in.png"  style="width: 30px;"/>
                                         @break
                                         @case('fa fa-youtube')
-                                            <img src="/yt.png"  style="width: 30px;"/>
+                                            <img width="30px" height="30px" src="/yt.png"  style="width: 30px;"/>
                                         @break
                                         @case('fa fa-linkedin')
-                                            <img src="/li.png"  style="width: 30px;"/>
+                                            <img width="30px" height="30px" src="/li.png"  style="width: 30px;"/>
                                         @break
                                     @endswitch
                                     <!-- <i class="{{ $red->icon }}"> </i> -->
@@ -300,25 +307,25 @@
 
 					</div>
 					<div class="col-lg-3 d-none d-lg-block">
-						<div class="footer__title">SECCIONES</div>
+						<div class="footer__title" style="color: white; filter: drop-shadow(2px 4px 6px black);">SECCIONES</div>
 
                         <div class="row">
 
                         <div class="col-6">
-                            <a class="footer__item" href="/">Home</a>
-                            <a class="footer__item" href="/empresa">Empresa</a>
-                            <a class="footer__item" href="/productos">Producto</a>
-                            <a class="footer__item" href="/clientes">Clientes</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/">Home</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/empresa">Empresa</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/productos">Producto</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/clientes">Clientes</a>
                         </div>
                         <div class="col-6">
-                            <a class="footer__item" href="/novedades">Novedades</a>
-                            <a class="footer__item" href="/contacto">Contacto</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/novedades">Novedades</a>
+                            <a class="footer__item" style="filter: drop-shadow(1px 2px 3px black);" href="/contacto">Contacto</a>
                         </div>
 
                         </div>
 					</div>
 					<div class="col-lg-5 d-none d-lg-block">
-						<div class="footer__title">servipack</div>
+						<div class="footer__title" style="color: white; filter: drop-shadow(2px 4px 6px black);">servipack</div>
 						<div class="footer__contact">
 
 							<div class="footer__contact-slot row" >
@@ -332,7 +339,7 @@
                                     ?>
                                 <div class="col-8">
                                 @foreach($data->slice(0,2)  as $cl)
-								<a href="{{ $cl->link }}">
+								<a href="{{ $cl->link }}" style="filter: drop-shadow(1px 2px 3px black);">
 									<div class="footer__contact-icon"  >
                                     <i class="{{ $cl->icon }}" ></i>
                                     <!-- @switch($cl->icon)
@@ -349,7 +356,7 @@
 								</a>
 								@endforeach
                                 </div>
-                                <div class="col-4">
+                                <div class="col-4" style="filter: drop-shadow(1px 2px 3px black);">
                                 @foreach($data->slice(2,4) as $cl)
 
 
@@ -380,7 +387,7 @@
 					</div>
                     <div class="col-lg-1 text-center d-flex">
                     
-                        <img style="max-width: 80px; margin: auto; " src="/storage/{{ $qr->config_value }}" />
+                        <img style="max-width: 80px; margin: auto; " src="/storage/{{ $qr->config_value }}" width="71px" height="87px" />
                     </div>
 				</div>
 			</div>
